@@ -71,7 +71,7 @@
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Data RS Rujukan</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                         <div class="text-xs mt-1">Total Rumah Sakit</div>
-                        <a href="#" class="noblue mt-1">
+                        <a href="/rs-rujukan" class="noblue mt-1">
                             <p class="card-text text-dark">
                                 <small>Lihat Detail <i class="fas fa-angle-double-right ml-2"></i></small>
                             </p>
@@ -92,9 +92,9 @@
                     <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Data Artikel</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
                         <div class="text-xs mt-1">Total Artikel</div>
-                        <a href="#" class="noblue mt-1">
+                        <a href="/article" class="noblue mt-1">
                             <p class="card-text text-dark">
                                 <small>Lihat Detail <i class="fas fa-angle-double-right ml-2"></i></small>
                             </p>

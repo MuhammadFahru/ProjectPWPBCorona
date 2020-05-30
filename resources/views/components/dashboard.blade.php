@@ -61,6 +61,17 @@
 
     </div>
 
+    <script>
+        var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('output');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        };
+    </script> 
+    
     <!-- Jquery JS-->
     <script src="assets/dashboard/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
@@ -86,6 +97,11 @@
     <!-- Main JS-->
     <script src="assets/dashboard/js/main.js"></script>
     <script src="assets/js/datatables.js"></script>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
 
 </body>
 

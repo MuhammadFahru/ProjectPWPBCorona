@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', 'InfoCoronaController@index')->name('index');
     Route::get('/global', 'InfoCoronaController@DataGlobal')->name('global');
     Route::get('/indonesia', 'InfoCoronaController@DataIndonesia')->name('indonesia');
+    Route::get('/article-page', 'ArticleController@show');
 /*
 |--------------------------------------------------------------------------
 | End Routes Website
@@ -37,6 +38,30 @@ use Illuminate\Support\Facades\Route;
     Route::get('/data-indonesia', 'InfoCoronaController@DataIndonesiaDashboard');
     Route::get('/rs-rujukan', 'RumahSakitController@index');
     Route::get('/article', 'ArticleController@index');
+/*
+|--------------------------------------------------------------------------
+| End Routes Website
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| Routes CRUD Data Rumah Sakit
+|--------------------------------------------------------------------------
+*/
+    Route::get('/form-rs', 'RumahSakitController@form');
+/*
+|--------------------------------------------------------------------------
+| End Routes Website
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| Routes CRUD Data Rumah Sakit
+|--------------------------------------------------------------------------
+*/
+    Route::get('/form-article', 'ArticleController@form');
 /*
 |--------------------------------------------------------------------------
 | End Routes Website
