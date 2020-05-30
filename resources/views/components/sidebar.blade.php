@@ -1,0 +1,110 @@
+<!-- HEADER MOBILE-->
+<header class="header-mobile d-block d-lg-none">
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
+                <a class="logo" href="index.html">
+                    <img src="assets/dashboard/images/icon/logo.png" alt="CoolAdmin" />
+                </a>
+                <button class="hamburger hamburger--slider" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li class="@yield('index') has-sub">
+                    <a href="/dashboard">
+                        <img src="assets/img/icons/dashboard.png" width="8%" alt="" class="mr-3">Dashboard
+                    </a>
+                </li>
+                <li class="@yield('global')">
+                    <a href="/data-global">
+                        <img src="assets/img/icons/global.png" width="8%" alt="" class="mr-3">Data Global
+                    </a>
+                </li>
+                <li class="@yield('indonesia')">
+                    <a href="data-indonesia">
+                        <img src="assets/img/icons/indonesia.png" width="8%" alt="" class="mr-3">Data Indonesia    
+                    </a>
+                </li>
+                <li class="@yield('rs')">
+                    <a href="/rs-rujukan">
+                        <img src="assets/img/icons/hospital.png" width="8%" alt="" class="mr-3">RS Rujukan
+                    </a>
+                </li>
+                <li class="@yield('article')">
+                    <a href="/article">
+                        <img src="assets/img/icons/news.png" width="8%" alt="" class="mr-3">Artikel
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- END HEADER MOBILE-->
+
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">            
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li>
+                    <a href="#" class="text-center" style="margin-top: -40px;">
+                        <img src="assets/img/logo-web3.png" width="80%" />
+                    </a>
+                </li>
+                <hr style="margin-top: -2px;">
+                <br>
+                <h6>Data</h6>
+                <li class="@yield('index') has-sub ml-2">
+                    <a href="/dashboard">
+                        <img src="assets/img/icons/dashboard.png" width="8%" alt="" class="mr-3">Dashboard
+                    </a>
+                </li>
+                <li class="ml-2 @yield('global')">
+                    <a href="/data-global">
+                        <img src="assets/img/icons/global.png" width="8%" alt="" class="mr-3">Data Global
+                    </a>
+                </li>
+                <li class="ml-2 @yield('indonesia')">
+                    <a href="/data-indonesia">
+                        <img src="assets/img/icons/indonesia.png" width="8%" alt="" class="mr-3">Data Indonesia    
+                    </a>
+                </li>
+                <li class="ml-2 @yield('rs')">
+                    <a href="/rs-rujukan">
+                        <img src="assets/img/icons/hospital.png" width="8%" alt="" class="mr-3">RS Rujukan
+                    </a>
+                </li>
+                <li class="ml-2 @yield('article')">
+                    <a href="/article">
+                        <img src="assets/img/icons/news.png" width="8%" alt="" class="mr-3">Artikel
+                    </a>
+                </li>
+                <br>
+                <h6>Acoount</h6>
+                <li class="ml-2 @yield('profile')">
+                    <a href="#">
+                        <img src="assets/img/icons/user.png" width="8%" alt="" class="mr-3">Profile
+                    </a>
+                </li>
+                <li class="ml-2 @yield('setting')">
+                    <a href="#">
+                        <img src="assets/img/icons/settings.png" width="8%" alt="" class="mr-3">Setting
+                    </a>
+                </li>
+                <li class="ml-2 @yield('logout')">
+                    <a href="/">
+                        <img src="assets/img/icons/logout.png" width="8%" alt="" class="mr-3">Logout    
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->

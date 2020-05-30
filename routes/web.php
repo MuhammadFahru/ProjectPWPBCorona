@@ -13,6 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+|--------------------------------------------------------------------------
+| Routes Website
+|--------------------------------------------------------------------------
+*/
+    Route::get('/', 'InfoCoronaController@index')->name('index');
+    Route::get('/global', 'InfoCoronaController@DataGlobal')->name('global');
+    Route::get('/indonesia', 'InfoCoronaController@DataIndonesia')->name('indonesia');
+/*
+|--------------------------------------------------------------------------
+| End Routes Website
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| Routes Dashboard
+|--------------------------------------------------------------------------
+*/
+    Route::get('/dashboard', 'InfoCoronaController@DataDashboard');
+    Route::get('/data-global', 'InfoCoronaController@DataGlobalDashboard');
+    Route::get('/data-indonesia', 'InfoCoronaController@DataIndonesiaDashboard');
+    Route::get('/rs-rujukan', 'RumahSakitController@index');
+    Route::get('/article', 'ArticleController@index');
+/*
+|--------------------------------------------------------------------------
+| End Routes Website
+|--------------------------------------------------------------------------
+*/
