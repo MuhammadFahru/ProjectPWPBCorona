@@ -14,9 +14,21 @@
                     </div>
                 </div>
                 <div class="form-group row mb-4">
+                    <label class="col-lg-3 col-form-label form-control-label">Provinsi</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="" >
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
                     <label class="col-lg-3 col-form-label form-control-label">Alamat</label>
                     <div class="col-lg-9">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row mb-4">
+                    <label class="col-lg-3 col-form-label form-control-label">No Telepon</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="" >
                     </div>
                 </div>
                 <div class="form-group row mb-4">
