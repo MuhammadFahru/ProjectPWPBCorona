@@ -1,5 +1,5 @@
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top @yield('bg')">
 <div class="container-fluid">
 
     <div class="row justify-content-center">

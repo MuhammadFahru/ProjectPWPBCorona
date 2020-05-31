@@ -22,7 +22,7 @@
   
     <div class="container">
   
-      <div class="copyright-wrap d-md-flex py-4">
+      <div class="copyright-wrap d-md-flex py-4 white">
         <div class="mr-md-auto text-center text-md-left">
           <div class="copyright">
             &copy; Copyright <strong><span>SHUTDOWN CORONA</span></strong> All Rights Reserved

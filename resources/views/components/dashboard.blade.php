@@ -63,12 +63,36 @@
 
     <script>
         var loadFile = function(event) {
-        var reader = new FileReader();
-        reader.onload = function(){
-            var output = document.getElementById('output');
-            output.src = reader.result;
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('output');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
         };
-        reader.readAsDataURL(event.target.files[0]);
+        var loadFile2 = function(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('output2');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+        var loadFile3 = function(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('output3');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+        var loadFile4 = function(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('output4');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
         };
     </script> 
     

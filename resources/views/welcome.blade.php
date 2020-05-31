@@ -10,12 +10,10 @@
 
   <div class="container-fluid" data-aos="fade-up">
     <div class="row justify-content-center">
-      <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-        <center>
-          <h1>Corona Virus Global & Indonesia Live Data</h1>
+      <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">        
+          <h1 style="text-align: left;">Corona Virus Global & Indonesia Live Data</h1>
           <h2>Website Infomatif Mengenai Perkembangan Virus Corona di Dunia dan Indonesia</h2>
           <div><a href="#about" class="btn-get-started scrollto">Get Started</a></div>
-        </center>
       </div>
       <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
         <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
@@ -399,7 +397,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Aceh/zainalAbidin.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -412,7 +410,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Bengkulu/damrahManna.png" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -425,7 +423,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Jakarta/gatotSubroto.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -438,7 +436,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Jakarta/durenSawit.png" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>          
@@ -451,7 +449,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/JawaBarat/hasanSadikin.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -464,7 +462,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/JawaBarat/bekasi.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -477,7 +475,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/JawaTengah/banyumas.png" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -490,7 +488,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/JawaTimur/soedonoMadiun.png" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -503,7 +501,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/KepulauanRiau/muhammadSani.png" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -516,7 +514,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Lampung/ahmadYaniMetro.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -529,7 +527,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Riau/arifinAchmad.png" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -542,7 +540,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Sumatera/kabanjahe.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -555,7 +553,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Sumatera/padangSidempuan.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -568,7 +566,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Yogyakarta/wates.png" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -581,7 +579,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Aceh/cutMeutia.png" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -594,7 +592,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Bengkulu/argaMakmur.png" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -607,7 +605,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/Jakarta/mintoharjo.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
@@ -620,7 +618,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/JawaBarat/slametGarut.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>

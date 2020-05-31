@@ -28,6 +28,8 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/navbar.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/all.css" rel="stylesheet">
+    @yield('assets')
 
     <!-- Chart JS CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -55,6 +57,7 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/datatables.js"></script>
+    @yield('js')
 
 </body>
 

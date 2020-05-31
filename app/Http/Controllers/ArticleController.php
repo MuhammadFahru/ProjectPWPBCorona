@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     public function show() {
-        return view('artikel');
+        return view('article.index');
+    }
+
+    public function detail() {
+        return view('article.detail-post');
     }
 
     public function index() {
