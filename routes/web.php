@@ -71,3 +71,6 @@ use Illuminate\Support\Facades\Route;
 | End Routes Website
 |--------------------------------------------------------------------------
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
