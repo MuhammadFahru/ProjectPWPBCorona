@@ -642,7 +642,7 @@
           <li data-aos="fade-up" data-aos="fade-up" data-aos-delay="100">
             <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapsed" href="#faq-list-1">Apa Penyebab Virus Corona ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
             <div id="faq-list-1" class="collapse" data-parent=".faq-list">
-              <p>
+              <p style="text-align: left;">
                 Infeksi virus Corona atau COVID-19 disebabkan oleh coronavirus, yaitu kelompok virus yang menginfeksi sistem pernapasan. Ada dugaan bahwa virus Corona awalnya ditularkan dari hewan ke manusia. Namun, kemudian diketahui bahwa virus Corona juga menular dari manusia ke manusia. Seseorang dapat tertular COVID-19 melalui berbagai cara, yaitu :
                 <br><br>
                 1. Tidak sengaja menghirup percikan ludah (droplet) yang keluar saat penderita COVID-19 batuk atau bersin
@@ -657,7 +657,7 @@
           <li data-aos="fade-up" data-aos-delay="200">
             <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">Bagaimana Mendiagnosis Virus Corona ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
             <div id="faq-list-2" class="collapse" data-parent=".faq-list">
-              <p>
+              <p style="text-align: left;">
                 Untuk menentukan apakah pasien terinfeksi virus Corona, dokter akan menanyakan gejala yang dialami pasien dan apakah pasien baru saja bepergian atau tinggal di daerah yang memiliki kasus infeksi virus Corona sebelum gejala muncul. Dokter juga akan menanyakan apakah pasien ada kontak dengan orang yang menderita atau diduga menderita COVID-19. Guna memastikan diagnosis COVID-19, dokter akan melakukan beberapa pemeriksaan berikut :
                 <br><br>
                 1. Rapid test untuk mendeteksi antibodi (IgM dan IgG) yang diproduksi oleh tubuh untuk melawan virus Corona
@@ -672,7 +672,7 @@
           <li data-aos="fade-up" data-aos-delay="300">
             <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Bagaimana Mengobati Virus Corona ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
             <div id="faq-list-3" class="collapse" data-parent=".faq-list">
-              <p>
+              <p style="text-align: left;">
                 Infeksi virus Corona atau COVID-19 belum bisa diobati, tetapi ada beberapa langkah yang dapat dilakukan dokter untuk meredakan gejalanya dan mencegah penyebaran virus, yaitu :
                 <br><br>
                 1. Merujuk penderita COVID-19 yang berat untuk menjalani perawatan dan karatina di rumah sakit rujukan
@@ -689,7 +689,7 @@
           <li data-aos="fade-up" data-aos-delay="400">
             <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">Apa saja kompilasi yang disebabkan oleh Virus Corona ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
             <div id="faq-list-4" class="collapse" data-parent=".faq-list">
-              <p>
+              <p style="text-align: left;">
                 Pada kasus yang parah, infeksi virus Corona bisa menyebabkan beberapa komplikasi berikut ini :
                 <br><br>
                 1. Pneumonia (infeksi paru-paru)

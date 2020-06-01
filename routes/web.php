@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 /*
 |--------------------------------------------------------------------------
 | Routes Website
@@ -71,6 +73,3 @@ use Illuminate\Support\Facades\Route;
 | End Routes Website
 |--------------------------------------------------------------------------
 */
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
