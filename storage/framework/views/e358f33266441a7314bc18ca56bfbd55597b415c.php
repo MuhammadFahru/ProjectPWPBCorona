@@ -17,29 +17,29 @@
     <nav class="navbar-mobile">
         <div class="container-fluid">
             <ul class="navbar-mobile__list list-unstyled">
-                <li class="@yield('index') has-sub">
+                <li class="<?php echo $__env->yieldContent('index'); ?> has-sub">
                     <a href="/dashboard">
-                        <img src="{{ asset('assets/img/icons/dashboard.png') }}" width="8%" alt="" class="mr-3">Dashboard
+                        <img src="<?php echo e(asset('assets/img/icons/dashboard.png')); ?>" width="8%" alt="" class="mr-3">Dashboard
                     </a>
                 </li>
-                <li class="@yield('global')">
+                <li class="<?php echo $__env->yieldContent('global'); ?>">
                     <a href="/data-global">
-                        <img src="{{ asset('assets/img/icons/global.png') }}" width="8%" alt="" class="mr-3">Data Global
+                        <img src="<?php echo e(asset('assets/img/icons/global.png')); ?>" width="8%" alt="" class="mr-3">Data Global
                     </a>
                 </li>
-                <li class="@yield('indonesia')">
+                <li class="<?php echo $__env->yieldContent('indonesia'); ?>">
                     <a href="data-indonesia">
-                        <img src="{{ asset('assets/img/icons/indonesia.png') }}" width="8%" alt="" class="mr-3">Data Indonesia    
+                        <img src="<?php echo e(asset('assets/img/icons/indonesia.png')); ?>" width="8%" alt="" class="mr-3">Data Indonesia    
                     </a>
                 </li>
-                <li class="@yield('rs')">
+                <li class="<?php echo $__env->yieldContent('rs'); ?>">
                     <a href="/rs-rujukan">
-                        <img src="{{ asset('assets/img/icons/hospital.png') }}" width="8%" alt="" class="mr-3">RS Rujukan
+                        <img src="<?php echo e(asset('assets/img/icons/hospital.png')); ?>" width="8%" alt="" class="mr-3">RS Rujukan
                     </a>
                 </li>
-                <li class="@yield('article')">
+                <li class="<?php echo $__env->yieldContent('article'); ?>">
                     <a href="/article">
-                        <img src="{{ asset('assets/img/icons/news.png') }}" width="8%" alt="" class="mr-3">Artikel
+                        <img src="<?php echo e(asset('assets/img/icons/news.png')); ?>" width="8%" alt="" class="mr-3">Artikel
                     </a>
                 </li>
             </ul>
@@ -55,52 +55,52 @@
             <ul class="list-unstyled navbar__list">
                 <li>
                     <a href="#" class="text-center" style="margin-top: -40px;">
-                        <img src="{{ asset('assets/img/logo-web3.png') }}" width="80%" />
+                        <img src="<?php echo e(asset('assets/img/logo-web3.png')); ?>" width="80%" />
                     </a>
                 </li>
                 <hr style="margin-top: -2px;">
                 <br>
                 <h6>Data</h6>
-                <li class="@yield('index') has-sub ml-2">
+                <li class="<?php echo $__env->yieldContent('index'); ?> has-sub ml-2">
                     <a href="/dashboard">
-                        <img src="{{ asset('assets/img/icons/dashboard.png') }}" width="8%" alt="" class="mr-3">Dashboard
+                        <img src="<?php echo e(asset('assets/img/icons/dashboard.png')); ?>" width="8%" alt="" class="mr-3">Dashboard
                     </a>
                 </li>
-                <li class="ml-2 @yield('global')">
+                <li class="ml-2 <?php echo $__env->yieldContent('global'); ?>">
                     <a href="/data-global">
-                        <img src="{{ asset('assets/img/icons/global.png') }}" width="8%" alt="" class="mr-3">Data Global
+                        <img src="<?php echo e(asset('assets/img/icons/global.png')); ?>" width="8%" alt="" class="mr-3">Data Global
                     </a>
                 </li>
-                <li class="ml-2 @yield('indonesia')">
+                <li class="ml-2 <?php echo $__env->yieldContent('indonesia'); ?>">
                     <a href="/data-indonesia">
-                        <img src="{{ asset('assets/img/icons/indonesia.png') }}" width="8%" alt="" class="mr-3">Data Indonesia    
+                        <img src="<?php echo e(asset('assets/img/icons/indonesia.png')); ?>" width="8%" alt="" class="mr-3">Data Indonesia    
                     </a>
                 </li>
-                <li class="ml-2 @yield('rs')">
+                <li class="ml-2 <?php echo $__env->yieldContent('rs'); ?>">
                     <a href="/rs-rujukan">
-                        <img src="{{ asset('assets/img/icons/hospital.png') }}" width="8%" alt="" class="mr-3">RS Rujukan
+                        <img src="<?php echo e(asset('assets/img/icons/hospital.png')); ?>" width="8%" alt="" class="mr-3">RS Rujukan
                     </a>
                 </li>
-                <li class="ml-2 @yield('article')">
+                <li class="ml-2 <?php echo $__env->yieldContent('article'); ?>">
                     <a href="/article">
-                        <img src="{{ asset('assets/img/icons/news.png') }}" width="8%" alt="" class="mr-3">Artikel
+                        <img src="<?php echo e(asset('assets/img/icons/news.png')); ?>" width="8%" alt="" class="mr-3">Artikel
                     </a>
                 </li>
                 <br>
                 <h6>Acoount</h6>
-                <li class="ml-2 @yield('profile')">
+                <li class="ml-2 <?php echo $__env->yieldContent('profile'); ?>">
                     <a href="#">
-                        <img src="{{ asset('assets/img/icons/user.png') }}" width="8%" alt="" class="mr-3">Profile
+                        <img src="<?php echo e(asset('assets/img/icons/user.png')); ?>" width="8%" alt="" class="mr-3">Profile
                     </a>
                 </li>
-                <li class="ml-2 @yield('setting')">
+                <li class="ml-2 <?php echo $__env->yieldContent('setting'); ?>">
                     <a href="#">
-                        <img src="{{ asset('assets/img/icons/settings.png') }}" width="8%" alt="" class="mr-3">Setting
+                        <img src="<?php echo e(asset('assets/img/icons/settings.png')); ?>" width="8%" alt="" class="mr-3">Setting
                     </a>
                 </li>
-                <li class="ml-2 @yield('logout')">
+                <li class="ml-2 <?php echo $__env->yieldContent('logout'); ?>">
                     <a href="#" data-toggle="modal" data-target="#logoutModal">
-                        <img src="{{ asset('assets/img/icons/logout.png') }}" width="8%" alt="" class="mr-3">Logout    
+                        <img src="<?php echo e(asset('assets/img/icons/logout.png')); ?>" width="8%" alt="" class="mr-3">Logout    
                     </a>
                 </li>
             </ul>
@@ -122,8 +122,8 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
+          <a class="btn btn-primary" href="<?php echo e(route('logout')); ?>">Logout</a>
         </div>
       </div>
     </div>
-  </div>
+  </div><?php /**PATH C:\xampp\htdocs\ProjectPWPBCorona\resources\views/components/sidebar.blade.php ENDPATH**/ ?>

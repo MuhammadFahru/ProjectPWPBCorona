@@ -1,6 +1,6 @@
-@extends('components.dashboard')
-@section('indonesia','active')
-@section('content')
+
+<?php $__env->startSection('indonesia','active'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="section__content section__content--p30">
     <div class="container-fluid">
 
@@ -38,9 +38,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col-lg-10">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Positif</div>
-                        @foreach ($indonesia as $data)
-                            <div class="mb-0 font-weight-bold text-gray-800">{{ $data['positif'] }} Orang</div>
-                        @endforeach                        
+                        <?php $__currentLoopData = $indonesia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="mb-0 font-weight-bold text-gray-800"><?php echo e($data['positif']); ?> Orang</div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                        
                         <a href="#" class="noblue mt-1">
                             <p class="card-text text-dark">
                                 <small>Lihat Detail <i class="fas fa-angle-double-right ml-2"></i></small>
@@ -62,9 +62,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col-lg-10">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sembuh</div>
-                        @foreach ($indonesia as $data)
-                            <div class="mb-0 font-weight-bold text-gray-800">{{ $data['sembuh'] }} Orang</div>
-                        @endforeach     
+                        <?php $__currentLoopData = $indonesia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="mb-0 font-weight-bold text-gray-800"><?php echo e($data['sembuh']); ?> Orang</div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>     
                         <a href="#" class="noblue mt-1">
                             <p class="card-text text-dark">
                                 <small>Lihat Detail <i class="fas fa-angle-double-right ml-2"></i></small>
@@ -86,9 +86,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col-lg-10">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Meninggal</div>
-                        @foreach ($indonesia as $data)
-                            <div class="mb-0 font-weight-bold text-gray-800">{{ $data['meninggal'] }} Orang</div>
-                        @endforeach     
+                        <?php $__currentLoopData = $indonesia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="mb-0 font-weight-bold text-gray-800"><?php echo e($data['meninggal']); ?> Orang</div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>     
                         <a href="#" class="noblue mt-1">
                             <p class="card-text text-dark">
                                 <small>Lihat Detail <i class="fas fa-angle-double-right ml-2"></i></small>
@@ -155,15 +155,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($provinsi as $dataIndonesia)
+                    <?php $__currentLoopData = $provinsi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dataIndonesia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr align="center">
-                            <td><h6>{{ $loop->iteration }}</h6></td>
-                            <td><h6>{{ $dataIndonesia['attributes']['Provinsi'] }}</h6></td>
-                            <td><h6>{{ $dataIndonesia['attributes']['Kasus_Posi'] }}</h6></td>
-                            <td><h6>{{ $dataIndonesia['attributes']['Kasus_Semb'] }}</h6></td>
-                            <td><h6>{{ $dataIndonesia['attributes']['Kasus_Meni'] }}</h6></td>
+                            <td><h6><?php echo e($loop->iteration); ?></h6></td>
+                            <td><h6><?php echo e($dataIndonesia['attributes']['Provinsi']); ?></h6></td>
+                            <td><h6><?php echo e($dataIndonesia['attributes']['Kasus_Posi']); ?></h6></td>
+                            <td><h6><?php echo e($dataIndonesia['attributes']['Kasus_Semb']); ?></h6></td>
+                            <td><h6><?php echo e($dataIndonesia['attributes']['Kasus_Meni']); ?></h6></td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
                 </table>
               </div>
@@ -177,7 +177,7 @@
     var data = new Array();
     
     $.ajax({
-        url: "{{ url('get-data-indo') }}",
+        url: "<?php echo e(url('get-data-indo')); ?>",
         type: 'POST',
         dataType: 'json',
         success: function(result) {
@@ -214,7 +214,7 @@
     });
 
     $.ajax({
-        url: "{{ url('get-data-provinsi') }}",
+        url: "<?php echo e(url('get-data-provinsi')); ?>",
         type: 'POST',
         dataType: 'json',
         success: function(result) {
@@ -233,7 +233,7 @@
                         borderColor: [
                             'rgba(255, 0, 0, 1)',
                         ],
-                        borderWidth: 5
+                        borderWidth: 0.1
                     }]
                 },
                 options: {
@@ -251,5 +251,7 @@
     });
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('components.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\ProjectPWPBCorona\resources\views/dashboard/data-indonesia.blade.php ENDPATH**/ ?>

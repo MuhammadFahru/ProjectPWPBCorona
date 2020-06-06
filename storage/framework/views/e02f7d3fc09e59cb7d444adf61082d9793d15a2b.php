@@ -1,6 +1,6 @@
-@extends('components.dashboard')
-@section('index','active')
-@section('content')
+
+<?php $__env->startSection('index','active'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="section_content section_content--p30">
     <div class="container-fluid">
 
@@ -21,7 +21,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col-lg-10 col-md-12">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Data Global</div>
-                        <div class="mb-0 font-weight-bold text-gray-800">{{ $positif['value'] }} Orang</div>
+                        <div class="mb-0 font-weight-bold text-gray-800"><?php echo e($positif['value']); ?> Orang</div>
                         <div class="text-xs font-weight-bold text-secondary text-uppercase mt-1">Positif</div>
                         <a href="/data-global" class="noblue mt-1">
                             <p class="card-text text-dark">
@@ -44,9 +44,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col-lg-10">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Data Indonesia</div>
-                        @foreach ($indonesia as $data)
-                            <div class="mb-0 font-weight-bold text-gray-800">{{ $data['positif'] }} Orang</div>
-                        @endforeach                        
+                        <?php $__currentLoopData = $indonesia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="mb-0 font-weight-bold text-gray-800"><?php echo e($data['positif']); ?> Orang</div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                        
                         <div class="text-xs font-weight-bold text-secondary text-uppercase mt-1">Positif</div>
                         <a href="/data-indonesia" class="noblue mt-1">
                             <p class="card-text text-dark">
@@ -69,7 +69,7 @@
                     <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Data RS Rujukan</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $jumlah_rumah_sakit }}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo e($jumlah_rumah_sakit); ?></div>
                         <div class="text-xs mt-1">Total Rumah Sakit</div>
                         <a href="/rs-rujukan" class="noblue mt-1">
                             <p class="card-text text-dark">
@@ -92,7 +92,7 @@
                     <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Data Artikel</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $jumlah_artikel }}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo e($jumlah_artikel); ?></div>
                         <div class="text-xs mt-1">Total Artikel</div>
                         <a href="/article" class="noblue mt-1">
                             <p class="card-text text-dark">
@@ -139,4 +139,5 @@
 
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('components.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\ProjectPWPBCorona\resources\views/dashboard/index.blade.php ENDPATH**/ ?>

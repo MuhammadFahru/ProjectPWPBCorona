@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Article;
+use App\Hospital;
 
 class InfoCoronaController extends Controller
 {
@@ -61,11 +63,13 @@ class InfoCoronaController extends Controller
         
         // GET Data API Corona Virus
         $data1 = Http::get('https://api.kawalcorona.com/positif');        
-        $data2 = Http::get('https://api.kawalcorona.com/indonesia');    
+        $data2 = Http::get('https://api.kawalcorona.com/indonesia');
         
         // Convert Data to JSON
         $data['positif'] = $data1->json();
         $data['indonesia'] = $data2->json();
+        $data['jumlah_rumah_sakit'] = Hospital::count();
+        $data['jumlah_artikel'] = Article::count();
 
         return view('dashboard.index', $data);
 

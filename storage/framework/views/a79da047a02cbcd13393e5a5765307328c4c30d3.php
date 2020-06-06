@@ -1,6 +1,6 @@
-@extends('components.dashboard')
-@section('rs','active')
-@section('content')
+
+<?php $__env->startSection('rs','active'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="section__content section__content--p30">
     <div class="container-fluid">          
 
@@ -8,47 +8,47 @@
             <h2 class="text-center mb-5">Form Data Rumah Sakit Rujukan</h2>
 
             <div>
-                 @if ($errors->any())
+                 <?php if($errors->any()): ?>
                   <div class="alert alert-danger">
                      <ul>
-                        @foreach ($errors->all() as $error)
-                         <li>{{ $error }}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                         <li><?php echo e($error); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                      </ul>
              </div><br />
-            @endif
+            <?php endif; ?>
 
-            <form action="{{ url('/rs',@$rumah_sakit->id) }}" method="POST" role="form">
-            @csrf
+            <form action="<?php echo e(url('/rs',@$rumah_sakit->id)); ?>" method="POST" role="form">
+            <?php echo csrf_field(); ?>
             
                 <div class="form-group row mb-4">
                     <label class="col-lg-3 col-form-label form-control-label">Nama Rumah Sakit</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" name="hospital_name" value="{{ old('hospital_name', @$rumah_sakit->hospital_name) }}">
+                        <input class="form-control" type="text" name="hospital_name" value="<?php echo e(old('hospital_name', @$rumah_sakit->hospital_name)); ?>">
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label class="col-lg-3 col-form-label form-control-label">Provinsi</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" name="province" value="{{ old('province', @$rumah_sakit->province) }}">
+                        <input class="form-control" type="text" name="province" value="<?php echo e(old('province', @$rumah_sakit->province)); ?>">
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label class="col-lg-3 col-form-label form-control-label">Alamat</label>
                     <div class="col-lg-9">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address" value="{{ old('address', @$rumah_sakit->address) }}"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address" value="<?php echo e(old('address', @$rumah_sakit->address)); ?>"></textarea>
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label class="col-lg-3 col-form-label form-control-label">No Telepon</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" name="phone_number" value="{{ old('phone_number', @$rumah_sakit->phone_number) }}">
+                        <input class="form-control" type="text" name="phone_number" value="<?php echo e(old('phone_number', @$rumah_sakit->phone_number)); ?>">
                     </div>
                 </div>
                 <div class="form-group row mb-4">
                     <label class="col-lg-3 col-form-label form-control-label">Logo Rumah Sakit</label>
                     <div class="col-lg-9">
-                        <input type="file" id="" name="logo" value="{{ old('logo', @$rumah_sakit->logo) }}">
+                        <input type="file" id="" name="logo" value="<?php echo e(old('logo', @$rumah_sakit->logo)); ?>">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -63,4 +63,5 @@
 
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('components.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\ProjectPWPBCorona\resources\views/dashboard/form/form-rs.blade.php ENDPATH**/ ?>

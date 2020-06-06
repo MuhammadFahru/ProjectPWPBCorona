@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('rs','active'); ?>
 <?php $__env->startSection('content'); ?>
-<div class="section__content section__content--p30">
+<div class="section_content section_content--p30">
     <div class="container-fluid">          
 
         <div class="card">
@@ -11,7 +11,7 @@
                         <h3>Data Rumah Sakit Rujukan di Indonesia</h3>
                     </div>
                     <div class="col-lg-2">
-                        <a href="/form-rs" class="btn btn-success ml-3"><i class="fas fa-plus mr-2"></i>Add Data</a>
+                    <a href="<?php echo e(route('rs')); ?>"  class="btn btn-success ml-3"><i class="fas fa-plus mr-2"></i>Add Data</a>
                     </div>
                 </div>                
             </div>
@@ -26,39 +26,32 @@
                           <th><h5>Provinsi</h5></th>
                           <th><h5>Alamat</h5></th>
                           <th><h5>Telepon</h5></th>
-                          <th style="width: 150px;"><h5>Action</h5></th>
+                          <th style="width: 150px;" colspan=2><h5>Action</h5></th>
                         </tr>
                       </thead>
                       <tbody>        
-<<<<<<< HEAD
-                        <?php for( $i = 1; $i <= 10; $i++ ) { ?>
-                            <tr align="center">
-                                <td><h6><br><?php echo e($i); ?></h6></td>
-                                <td><img src="assets/img/logoRumahSakit/JawaTimur/soedonoMadiun.png" alt=""></td>
-                                <td><h6><br>RS Soedono Madiun</h6></td>
-                                <td><h6><br>Riau</h6></td>
-                                <td><h6><br>Jl. Dr. Sutomo No.59, Kartoharjo</h6></td>
-                                <td><h6><br>(0761) 21618</h6></td>
-=======
                        <?php $__currentLoopData = $hospitals; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $hospital): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr align="center">
                                 <td><h6><br><?php echo e($loop->iteration); ?></h6></td>
-                                <td><img src="assets/img/logoRumahSakit/<?php echo e($hospital['province']); ?>/<?php echo e($hospital['logo']); ?>" alt=""></td>
+                                <td><img src="<?php echo e(asset('assets/img/logoRumahSakit/'.$hospital['province'].'/'.$hospital['logo'])); ?>" alt=""></td>
                                 <td><h6><br><?php echo e($hospital['hospital_name']); ?></h6></td>
                                 <td><h6><br><?php echo e($hospital['province']); ?></h6></td>
                                 <td><h6><br><?php echo e($hospital['address']); ?></h6></td>
                                 <td><h6><br><?php echo e($hospital['phone_number']); ?></h6></td>
->>>>>>> 10ae21811192422d09fc833ee4e649b91fe6c2e4
                                 <td>
-                                    <a href="" class="btn btn-secondary mt-3" style="width: 80px;">Edit</a>
-                                    <a href="" class="btn btn-danger mt-3" style="width: 80px;">Delete</a>
+                                    <a href="<?php echo e(url('/rs/'.@$hospital->id.'/edit')); ?>" class="btn btn-secondary mt-3" style="width: 80px;">Edit</a>
                                 </td>
+                                <td>
+                                    <form action="<?php echo e(url('/rs',@$hospital->id)); ?>" method="post">
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('DELETE'); ?>
+                                        <button href="" class="btn btn-danger mt-3" style="width: 80px;">Delete</button>
+                                    </form>
+                                </td>
+                                    
+                                
                             </tr>
-<<<<<<< HEAD
-                        <?php } ?>
-=======
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
->>>>>>> 10ae21811192422d09fc833ee4e649b91fe6c2e4
                       </tbody>
                     </table>
                   </div>
@@ -68,4 +61,4 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('components.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Diazs\Tugas\CovidProject\ProjectPWPBCorona\resources\views/dashboard/rumah-sakit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('components.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\ProjectPWPBCorona\resources\views/dashboard/rumah-sakit.blade.php ENDPATH**/ ?>

@@ -8,7 +8,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
     <!-- Title Page-->
     <title>Dashboard Shutdown Corona</title>
@@ -46,7 +46,7 @@
     <!-- Chart JS CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script src="<?php echo e(asset('ckeditor/ckeditor.js')); ?>"></script>
 
     <script>
          $.ajaxSetup({
@@ -61,16 +61,16 @@
 <body class="animation">
     <div class="page-wrapper">        
 
-        @include('components.sidebar')
+        <?php echo $__env->make('components.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">            
 
-            @include('components.header')
+            <?php echo $__env->make('components.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
@@ -141,3 +141,4 @@
 
 </html>
 <!-- end document-->
+<?php /**PATH C:\xampp\htdocs\ProjectPWPBCorona\resources\views/components/dashboard.blade.php ENDPATH**/ ?>

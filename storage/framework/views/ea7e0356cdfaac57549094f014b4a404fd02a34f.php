@@ -69,7 +69,11 @@
                     <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Data RS Rujukan</div>
+<<<<<<< HEAD
                         <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+=======
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo e($jumlah_rumah_sakit); ?></div>
+>>>>>>> 10ae21811192422d09fc833ee4e649b91fe6c2e4
                         <div class="text-xs mt-1">Total Rumah Sakit</div>
                         <a href="/rs-rujukan" class="noblue mt-1">
                             <p class="card-text text-dark">
@@ -92,7 +96,11 @@
                     <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Data Artikel</div>
+<<<<<<< HEAD
                         <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+=======
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo e($jumlah_artikel); ?></div>
+>>>>>>> 10ae21811192422d09fc833ee4e649b91fe6c2e4
                         <div class="text-xs mt-1">Total Artikel</div>
                         <a href="/article" class="noblue mt-1">
                             <p class="card-text text-dark">

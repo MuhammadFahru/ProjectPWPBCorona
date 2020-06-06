@@ -112,7 +112,7 @@
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
                         <h3 class="title-2 m-b-40">Line Chart</h3>
-                        <canvas id="lineChart"></canvas>
+                        <canvas id="myChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
                         <h3 class="title-2 m-b-40">Single Bar Chart</h3>
-                        <canvas id="singelBarChart"></canvas>
+                        <canvas id="myChart2"></canvas>
                     </div>
                 </div>
             </div>
@@ -166,4 +166,49 @@
 
     </div>
 </div>
+
+<script>
+    var data = new Array();
+
+    $.ajax({
+        url: "{{ url('get-data-global') }}",
+        type: 'POST',
+        dataType: 'json',
+        success: function(result) {
+            data = result;
+            dataCountry = data['Country'].slice(0,10);
+            dataTotal = data['TotalConfirmed'].slice(0,10);
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dataCountry,
+                    datasets: [{
+                        label: 'Terinfeksi',
+                        data:  dataTotal,
+                        backgroundColor: [
+                            'rgba(255, 0, 0, 0.1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+        },
+    });
+
+</script>
 @endsection

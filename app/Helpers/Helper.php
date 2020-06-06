@@ -133,14 +133,14 @@ if (! function_exists('getMostRecoveredCountry')) {
 			$iter++;
 		}
 
-	 	return multiArraySort($recovered,"totalRecovered");
+	 	return multiArraySort($recovered,"totalRecovered"); // make ieu bisa teu return na? emang kuduna
 	}
 }
 
 //Sorting Multidimensional Array Depend of The Key
 if (! function_exists('multiArraySort')) {
 	# code...
-	function multiArraySort($array,$key){
+	function multiArraySort($array,$key){ // jadi indexFirst teh nu index pertama teh nomor lain key. emang dina api na. index pertamana indexna ka Country heula ? siga eta
 		$temp = array();
 		$swapped = false;
 		if (sizeof($array)>1) {
@@ -155,7 +155,8 @@ if (! function_exists('multiArraySort')) {
 							$array[$i] = $temp;
 							$swapped = true;
 						}
-					}				
+					}
+								
 				}
 			}while($swapped);
 		}
@@ -164,5 +165,54 @@ if (! function_exists('multiArraySort')) {
 	}
 }
 
+// Total Infected by province
+if (! function_exists('infectedByProvince')){
+	#code...
+	function infectedByProvince(){
+		$infected = array();
+		$iter = 0;
+		#code...
+		$data = Http::get('https://api.kawalcorona.com/indonesia/provinsi')->json('');
 
+		foreach ($data as $key => $value) {
+			
+			$infected['provinceName'][$iter] = $value['attributes']['Provinsi'];
+			$infected['totalInfected'][$iter] = $value['attributes']['Kasus_Posi'];
+			$iter++;
+		}
+
+		return $infected;
+	}
+}
+
+// Total Infected global
+if (! function_exists('infectedGlobalPerCountry')){
+	#code...
+	function infectedGlobalPerCountry(){
+		$infected = array();
+		$iter = 0;
+		#code...
+		$data = Http::get('https://api.covid19api.com/summary')->json()['Countries'];
+		foreach ($data as $key => $value) {
+			
+			$infected[$iter]['Country'] = $value['Country'];
+			$infected[$iter]['TotalConfirmed'] = $value['TotalConfirmed'];
+			$iter++;
+		}
+		$infected = multiArraySort($infected,"TotalConfirmed");
+		$infected = swap($infected,"Country","TotalConfirmed");
+		
+		return $infected;
+	}
+}
+
+function swap($array,$key,$key2){ //parameter $key teh jeung ngaswap key nu eta 
+	$result = array();
+	for ($i=0; $i <sizeof($array) ; $i++) { 
+		# code...
+		$result[$key][$i] = $array[$i][$key]; 
+		$result[$key2][$i] = $array[$i][$key2];
+	}
+	return $result;
+}
 ?>
