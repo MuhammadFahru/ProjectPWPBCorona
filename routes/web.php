@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,10 @@ Auth::routes();
     });
     Route::post('/get-data-global',function(){
         echo json_encode(infectedGlobalPerCountry());
+    });
+    Route::post('/get-recov-global',function(){
+        $country = $_GET['country'];
+        echo json_encode(recoveredGlobalPerDay($country)); //bisa teu sih, cobaan
     });
     Route::get('/get-data-global',function(){
        var_dump(infectedGlobalPerCountry());

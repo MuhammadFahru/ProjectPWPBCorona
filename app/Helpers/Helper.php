@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 //Get Graphic of Indonesia Country
 if (! function_exists('getGrafikIndo')) {
@@ -203,6 +204,32 @@ if (! function_exists('infectedGlobalPerCountry')){
 		$infected = swap($infected,"Country","TotalConfirmed");
 		
 		return $infected;
+	}
+}
+
+// Recovered Global
+if(! function_exists('recoveredGlobalPerDay')){
+	#code...
+	function recoveredGlobalPerDay($country){
+		$result = array();
+		$iter = 0;
+		$url = 'https://api.covid19api.com/country/'.$country;
+		$data = Http::get($url)->json();
+		for ($i = 0; $i < sizeof($data) ; $i++) { 
+			# code...
+			if ($i != sizeof($data)-1) {
+				# code...
+				if ($i!=0) {
+					# code...
+					$result['recovered'][$i] = $data[$i]['Recovered'] - $data[$i-1]['Recovered'];
+				}else{
+					$result['recovered'][$i] = $data[$i]['Recovered'];
+				}
+				$result['day'][$i] = getRefinedDate($data[$i]['Date'],"T");
+			}
+		}
+		//sholat dahar hela yas, meh tenang
+		return $result;
 	}
 }
 

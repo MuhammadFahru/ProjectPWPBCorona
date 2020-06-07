@@ -112,17 +112,22 @@
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
                         <h3 class="title-2 m-b-40">Line Chart</h3>
+                            <select class="custom-select" id="line">
+                            <?php $__currentLoopData = $negara; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dataNegara): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($dataNegara['Country']); ?>"><?php echo e($dataNegara['Country']); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
                         <canvas id="myChart"></canvas>
                     </div>
                 </div>
-            </div>
+            </div> 
             <div class="col-lg-6">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
                         <h3 class="title-2 m-b-40">Single Bar Chart</h3>
                         <canvas id="myChart2"></canvas>
                     </div>
-                </div>
+                </div>/
             </div>
         </div>
 
@@ -169,6 +174,62 @@
 
 <script>
     var data = new Array();
+    var e = document.getElementById("line");
+    var negara = e.options[e.selectedIndex].value;
+
+    $(function(){
+        $("#line").on('change',function(){
+            negara = $(this).children("option:selected").val().toLowerCase();
+            console.log(negara);
+            $.ajax({
+                url: "<?php echo e(url('get-recov-global')); ?>"+"?country="+negara,
+                type: 'POST',
+                dataType: 'json',
+                success: function(result) {
+                    data = result;
+                    var day = data['day'].slice(data['day'].length-30,data['day'].length-1);
+                    var recov = data['recovered'].slice(data['recovered'].length-30,data['recovered'].length-1)
+
+                    console.log(data);
+                    
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: day,
+                            datasets: [{
+                                label: 'Sembuh',
+                                data:  recov,
+                                backgroundColor: [
+                                    'rgba(124,252,0,0.1)'
+                                ],
+                                borderCsolor: [
+                                    'rgba(124,252,0, 1)',
+                                ],
+                                
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown);
+                    console.warn(XMLHttpRequest.responseText);
+                },
+            });
+        });
+    });
+    
 
     $.ajax({
         url: "<?php echo e(url('get-data-global')); ?>",
