@@ -92,7 +92,7 @@ class HospitalController extends Controller
      */
     public function edit($id)
     {
-        $hospital = Hospital::find($id);
+        $hospital['rumah_sakit'] = Hospital::find($id);
         $hospital['province'] = Province::get();
         return view('dashboard.form.form-rs',$hospital);
     }

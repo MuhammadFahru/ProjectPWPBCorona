@@ -25,14 +25,14 @@
 					<?php if (isset($article[0])): ?>
 					<div class="col-md-8 hot-post-left">
 						<div class="post post-thumb">
-							<a class="post-img" href="/detail-article"><img width="100%" height="500" src="assets/article/img/<?php echo e($article[0]['headline_picture']); ?>" alt=""></a>
+							<a class="post-img" href="<?php echo e(url('/article',$article[0]['id'])); ?>"><img width="100%" height="500" src="assets/article/img/<?php echo e($article[0]['headline_picture']); ?>" alt=""></a>
 							<div class="post-body">
 								<div class="post-category">
-									<a href="/article/<?php echo e($article[0]['id']); ?>">Hot Article</a>
+									<a href="<?php echo e(url('/article',$article[0]['id'])); ?>">Hot Article</a>
 								</div>
-								<h3 class="post-title title-lg"><a href="/detail-article"><?php echo e($article[0]['title']); ?></a></h3>
+								<h3 class="post-title title-lg"><a href="<?php echo e(url('/article',$article[0]['id'])); ?>"><?php echo e($article[0]['title']); ?></a></h3>
 								<ul class="post-meta">
-									<li><a href="/article"><?php echo e($article[0]['author']); ?></a></li>
+									<li><a href="<?php echo e(url('/article',$article[0]['id'])); ?>"><?php echo e($article[0]['author']); ?></a></li>
 									<li><?php echo e($article[0]['created_at']); ?></li>
 								</ul>
 							</div>
@@ -46,14 +46,14 @@
 					<?php if (isset($article[1])): ?>
 					<!-- post -->
 					<div class="post post-thumb">
-						<a class="post-img" href="/detail-article"><img src="assets/article/img/<?php echo e($article[1]['headline_picture']); ?>" alt="" width="100%" height="247"></a>
+						<a class="post-img" href="<?php echo e(url('/article',$article[1]['id'])); ?>"><img src="assets/article/img/<?php echo e($article[1]['headline_picture']); ?>" alt="" width="100%" height="247"></a>
 						<div class="post-body">
 							<div class="post-category">
-								<a href="/article">Hot Article</a>
+								<a href="<?php echo e(url('/article',$article[1]['id'])); ?>">Hot Article</a>
 							</div>
 							<h3 class="post-title"><a href="/detail-article"><?php echo e($article[1]['title']); ?></a></h3>
 							<ul class="post-meta">
-								<li><a href="author.html"><?php echo e($article[1]['author']); ?></a></li>
+								<li><a href="<?php echo e(url('/article',$article[1]['id'])); ?>"><?php echo e($article[1]['author']); ?></a></li>
 								<li><?php echo e($article[1]['created_at']); ?></li>
 							</ul>
 						</div>
@@ -65,13 +65,13 @@
 					
 					<!-- post -->
 					<div class="post post-thumb">
-						<a class="post-img" href="/detail-article"><img src="assets/article/img/<?php echo e($article[2]['headline_picture']); ?>" alt="" width="100%" height="247"></a>
+						<a class="post-img" href="<?php echo e(url('/article',$article[2]['id'])); ?>"><img src="assets/article/img/<?php echo e($article[2]['headline_picture']); ?>" alt="" width="100%" height="247"></a>
 						<div class="post-body">
 							<div class="post-category">
-								<a href="category.html">Fashion</a>
-								<a href="category.html">Lifestyle</a>
+								<a href="<?php echo e(url('/article',$article[2]['id'])); ?>">Fashion</a>
+								<a href="<?php echo e(url('/article',$article[2]['id'])); ?>">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="/detail-article"><?php echo e($article[2]['title']); ?></a></h3>
+							<h3 class="post-title"><a href="<?php echo e(url('/article',$article[2]['id'])); ?>"><?php echo e($article[2]['title']); ?></a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html"><?php echo e($article[2]['author']); ?></a></li>
 								<li><?php echo e($article[2]['created_at']); ?></li>
@@ -112,115 +112,25 @@
 
 						
 						
-
+						<?php $__currentLoopData = $article; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $art): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 						<!-- post -->
 						<div class="col-md-4">
 							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-9.jpg" alt=""></a>
+								<a class="post-img" href="<?php echo e(url('/article',$art['id'])); ?>"><img src="<?php echo e(url('assets/article/img/',$art['headline_picture'])); ?>" alt=""></a>
 								<div class="post-body">
 									<div class="post-category">
-										<a href="category.html">Lifestyle</a>
+										<a href="<?php echo e(url('/article',$art['id'])); ?>">Lifestyle</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+									<h3 class="post-title title-sm"><a href="<?php echo e(url('/article',$art['id'])); ?>"><?php echo e($art['title']); ?></a></h3>
 									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
+										<li><a href="<?php echo e(url('/article',$art['id'])); ?>"><?php echo e($art['author']); ?></a></li>
+										<li><?php echo e($art['created_at']); ?></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-8.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Fashion</a>
-										<a href="category.html">Lifestyle</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Postea senserit id eos, vivendo periculis ei qui</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>`
 
 					</div>
 					<!-- /row -->	

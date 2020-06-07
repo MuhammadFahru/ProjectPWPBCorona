@@ -15,6 +15,17 @@
                     </div>
                 </div>                
             </div>
+            <?php if(session('success')): ?>
+                <div class="alert alert-success mx-3">
+                    <center> <?php echo e(session('success')); ?> <i class="ml-1 fas fa-check"></i></center>
+                </div>
+            <?php endif; ?>
+
+            <?php if(session('error')): ?>
+                <div class="alert alert-error col-md-3 mx-5 text-wrap">
+                   <center> <?php echo e(session('error')); ?> </center> <i class="ml-1 fas fa-times"></i>
+                </div>
+            <?php endif; ?>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -26,7 +37,7 @@
                           <th><h5>Provinsi</h5></th>
                           <th><h5>Alamat</h5></th>
                           <th><h5>Telepon</h5></th>
-                          <th style="width: 150px;" colspan=2><h5>Action</h5></th>
+                          <th style="width: 150px;"><h5>Action</h5></th>
                         </tr>
                       </thead>
                       <tbody>        
@@ -38,18 +49,15 @@
                                 <td><h6><br><?php echo e($hospital['province']); ?></h6></td>
                                 <td><h6><br><?php echo e($hospital['address']); ?></h6></td>
                                 <td><h6><br><?php echo e($hospital['phone_number']); ?></h6></td>
-                                <td>
-                                    <a href="<?php echo e(url('/rs/'.@$hospital->id.'/edit')); ?>" class="btn btn-secondary mt-3" style="width: 80px;">Edit</a>
-                                </td>
+
                                 <td>
                                     <form action="<?php echo e(url('/rs',@$hospital->id)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('DELETE'); ?>
+                                        <a href="<?php echo e(url('/rs/'.@$hospital->id.'/edit')); ?>" class="btn btn-secondary mt-3" style="width: 80px;">Edit</a>
                                         <button href="" class="btn btn-danger mt-3" style="width: 80px;">Delete</button>
                                     </form>
                                 </td>
-                                    
-                                
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </tbody>

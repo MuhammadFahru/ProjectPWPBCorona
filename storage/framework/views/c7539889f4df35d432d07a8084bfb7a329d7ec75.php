@@ -19,8 +19,11 @@
                 <?php endif; ?>
 
             <form action="<?php echo e(url('/rs',@$rumah_sakit->id)); ?>" method="POST" role="form" enctype='multipart/form-data'>
+            <?php if(isset($rumah_sakit)): ?>
+                <?php echo method_field('PATCH'); ?>
+            <?php endif; ?>
+
             <?php echo csrf_field(); ?>
-            
                 <div class="form-group row mb-4">
                     <label class="col-lg-3 col-form-label form-control-label">Nama Rumah Sakit</label>
                     <div class="col-lg-9">

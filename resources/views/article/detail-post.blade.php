@@ -48,17 +48,23 @@
 					<!-- post nav -->
 					<div class="section-row">
 						<div class="post-nav">
+							
+							<?php if (!empty($prev['id'])): ?>
 							<div class="prev-post">
-								<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-8.jpg" alt=""></a>
-								<h3 class="post-title"><a href="#">Artikel Sebelumnya ( Judul )</a></h3>
+								<a class="post-img" href="{{ url('/article',$prev['id']) }}"><img src="{{ url('assets/article/img',$prev['headline_picture']) }}" alt=""></a>
+								<h3 class="post-title"><a href="{{ url('/article',$prev['id']) }}">{{ $prev['title'] }}</a></h3>
 								<span>Previous post</span>
 							</div>
+							<?php endif ?>
 
+							<?php if (!empty($next['id'])): ?>
 							<div class="next-post">
-								<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-10.jpg" alt=""></a>
-								<h3 class="post-title"><a href="#">Article Selanjutnya ( Judul )</a></h3>
+								<a class="post-img" href="{{ url('/article',$next['id']) }}"><img src="{{ url('assets/article/img',$next['headline_picture']) }}" alt=""></a>
+								<h3 class="post-title"><a href="{{ url('/article',$next['id']) }}">{{ $next['title'] }}</a></h3>
 								<span>Next post</span>
 							</div>
+							<?php endif ?>
+
 						</div>
 					</div>
 					<!-- /post nav  -->										
@@ -72,7 +78,7 @@
 							<!-- comment -->
 							<div class="media">
 								<div class="media-left">
-									<img class="media-object" src="assets/img/icons/ava1.png" alt="">
+									<img class="media-object" src="{{ url('assets/img/icons/ava1.png') }} " alt="">
 								</div>
 								<div class="media-body">
 									<div class="media-heading">
@@ -84,7 +90,7 @@
 									<!-- comment -->
 									<div class="media media-author">
 										<div class="media-left">
-											<img class="media-object" src="assets/img/icons/ava5.png" alt="">
+											<img class="media-object" src="{{ url('assets/img/icons/ava5.png') }}" alt="">
 										</div>
 										<div class="media-body">
 											<div class="media-heading">
@@ -103,7 +109,7 @@
 							<!-- comment -->
 							<div class="media">
 								<div class="media-left">
-									<img class="media-object" src="assets/img/icons/ava3.png" alt="">
+									<img class="media-object" src="{{ url('assets/img/icons/ava3.png') }}" alt="">
 								</div>
 								<div class="media-body">
 									<div class="media-heading">
@@ -163,61 +169,18 @@
 							<h2 class="title">Popular Posts</h2>
 						</div>
 
-						{{-- FOREACH DISINI UNTUK MEMUNCULKAN ARTICLE TERBARU SEBANNYAK 6 ARTICLE --}}
-
+						
+						@foreach($articles as $article)
+						
 						<!-- post -->
 						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-3.jpg" alt=""></a>
+							<a class="post-img" href="{{ url('/article',$article['id']) }}"><img src="{{ url('assets/article/img',$article['headline_picture']) }}" alt=""></a>
 							<div class="post-body">								
-								<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
+								<h3 class="post-title"><a href="{{ url('/article',$article['id']) }}">{{ $article['title'] }}</a></h3>
 							</div>
 						</div>
 						<!-- /post -->
-
-						<!-- post -->
-						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-2.jpg" alt=""></a>
-							<div class="post-body">																
-								<h3 class="post-title"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-4.jpg" alt=""></a>
-							<div class="post-body">								
-								<h3 class="post-title"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-5.jpg" alt=""></a>
-							<div class="post-body">																
-								<h3 class="post-title"><a href="blog-post.html">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-3.jpg" alt=""></a>
-							<div class="post-body">								
-								<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="post post-widget">
-							<a class="post-img" href="blog-post.html"><img src="assets/article/img/widget-3.jpg" alt=""></a>
-							<div class="post-body">								
-								<h3 class="post-title"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
-							</div>
-						</div>
-						<!-- /post -->
+						@endforeach
 						
 					</div>
 					<!-- /post widget -->
