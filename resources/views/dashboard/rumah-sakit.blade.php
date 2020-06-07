@@ -30,7 +30,7 @@
                         </tr>
                       </thead>
                       <tbody>        
-                        <?php for( $i = 1; $i <= 10; $i++ ) { ?>
+                        <?php for( $i = 1; $i <= 2; $i++ ) { ?>
                             <tr align="center">
                                 <td><h6><br>{{ $i }}</h6></td>
                                 <td><img src="assets/img/logoRumahSakit/JawaTimur/soedonoMadiun.png" alt=""></td>

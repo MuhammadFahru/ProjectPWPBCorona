@@ -20,10 +20,20 @@
               <form class="user" method="POST" action="{{ route('login.post') }}">
                 @csrf
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Email..." name="email">
+                  <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukan Email..." value="{{ old('email') }}" name="email">
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
+                  <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword" placeholder="Password" name="password">
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
                 <div class="form-group">
                   <div class="custom-control custom-checkbox small">

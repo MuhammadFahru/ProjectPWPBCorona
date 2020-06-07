@@ -15,7 +15,7 @@ class InfoCoronaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('index', 'DataGlobal'. 'DataIndonesia');
+        $this->middleware('auth')->except('index', 'DataGlobal', 'DataIndonesia');
     }
 
     public function index() {
