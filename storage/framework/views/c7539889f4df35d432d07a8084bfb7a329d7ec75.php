@@ -15,8 +15,8 @@
                          <li><?php echo e($error); ?></li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                      </ul>
-             </div><br />
-            <?php endif; ?>
+                 </div><br />
+                <?php endif; ?>
 
             <form action="<?php echo e(url('/rs',@$rumah_sakit->id)); ?>" method="POST" role="form" enctype='multipart/form-data'>
             <?php echo csrf_field(); ?>

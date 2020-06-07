@@ -112,16 +112,18 @@ class HospitalController extends Controller
             'hospital_name'=>'required',
             'province'=>'required',
             'address'=>'required',
-            'phone_number'=>'required',
-            'logo'=>'required'
+            'phone_number'=>'required'
         ]);
+
+        if ($_FILES['logo']['error'] == 0) {//Jika foto baru di upload maka simpan perubahan ke database
+            $logo = storeImage($_FILES['logo'],'assets/img/logoRumahSakit/'.Province::find($request->get('province'),['province_name'])['province_name']);
+        }
 
         $hospital = Hospital::find($id);
         $hospital->hospital_name   = $request->get('hospital_name');
         $hospital->province        = $request->get('province');
         $hospital->address         = $request->get('address');
         $hospital->phone_number    = $request->get('phone_number');
-        $hospital->logo            = $request->get('logo');
         $hospital->save();
         
         return redirect('/rs-rujukan')->with('success', 'Rs updated!');    

@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('headline_picture');
             $table->text('content');
-            $table->biginteger('author')->unsigned();
+            $table->bigInteger('author')->unsigned();
             $table->timestamps();
             $table->foreign('author')->references('id')->on('users');
         });

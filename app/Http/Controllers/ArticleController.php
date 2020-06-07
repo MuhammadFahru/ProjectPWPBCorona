@@ -42,7 +42,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {   
-
         $article = new Article();
 
         $request->validate([
@@ -63,7 +62,6 @@ class ArticleController extends Controller
             'headline_picture' => $picture
 
         ]);
-        $article->save();
 
         return redirect('/article')->with('success','Data Added Succesfully!');
     }
