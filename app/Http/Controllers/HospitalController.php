@@ -75,9 +75,13 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function show(Hospital $hospital)
+    public function show($id)
     {
-        
+        $data['rumah_sakit'] = Hospital::find($id);
+
+        $data['rumah_sakit']['province'] = province::find($data['rumah_sakit']['province'],['province_name'])['province_name'];
+
+        return view('detail-rs',$data);
     }
 
     /**

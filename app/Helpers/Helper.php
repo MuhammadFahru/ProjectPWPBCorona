@@ -2,7 +2,7 @@
 
 use App\Hospital;
 use App\Article;
-
+use App\Province;
 
 //Get Graphic of Indonesia Country
 if (! function_exists('getGrafikIndo')) {
@@ -185,8 +185,7 @@ if (! function_exists('getGrafikHospital')) {
                  ->get();
         for ($i=0; $i < sizeof($data); $i++) { 
         	# code...
-        	
-        	$result['province'][$i] = $data[$i]['province'];
+        	$result['province'][$i] = Province::find($data[$i]['province'],['province_name'])['province_name'];
         	$result['total'][$i] = $data[$i]['total'];
         }
         return $result;

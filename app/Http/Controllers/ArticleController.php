@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article.index');
+        $data['article'] = Article::get();
+        for ($i=0; $i < sizeof($data['article']); $i++) { 
+            $data['article'][$i]['author'] = User::find($data['article'][$i]['author'], ['name'])['name'];
+        } 
+        
+        return view('article.index',$data);
     }
 
     /**
@@ -36,7 +42,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {   
-        dd(Auth::user());
+
         $article = new Article();
 
         $request->validate([
@@ -44,15 +50,22 @@ class ArticleController extends Controller
             'content' => 'required'
         ]);
 
+
+        if ($_FILES['headline_picture']['error']== 4) {
+            return redirect(url()->previous())->with('error','Please Insert Image!');
+        }
         $picture = storeImage($_FILES['headline_picture'],'assets/article/img');
 
         $article::create([
             'title' => $request->get('title'),
             'content' => $request->get('content'),
-            'author' => 'w',
+            'author' => Auth::user()->id,
             'headline_picture' => $picture
 
         ]);
+        $article->save();
+
+        return redirect('/article')->with('success','Data Added Succesfully!');
     }
 
     /**
@@ -61,9 +74,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        return view('article.detail-post');
+        $data['article'] = Article::find($id);
+        return view('article.detail-post',$data);
     }
 
     /**
@@ -72,9 +86,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
-    {
-        //
+    public function edit($id)
+    {   
+        $data['article'] = Article::find($id);
+        return view('dashboard.form.form-artikel',$data);
     }
 
     /**
@@ -84,9 +99,24 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        $article = Article::find($id);
+        $article->title  = $request->get('title');
+        if ($_FILES['headline_picture']['error'] == 4 && empty($article->headline_picture)) {
+            return redirect(url()->current())->with('error','Insert Picture!');
+        }else if($_FILES['headline_picture']['error'] == 0){
+            $picture = storeImage($_FILES['headline_picture'],'assets/article/img');
+        }
+        $article->content = $request->get('content');
+        $article->save();
+        
+        return redirect('/article')->with('success', 'Article Updated!');    
     }
 
     /**

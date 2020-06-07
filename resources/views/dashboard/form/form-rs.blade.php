@@ -15,8 +15,8 @@
                          <li>{{ $error }}</li>
                         @endforeach
                      </ul>
-             </div><br />
-            @endif
+                 </div><br />
+                @endif
 
             <form action="{{ url('/rs',@$rumah_sakit->id) }}" method="POST" role="form" enctype='multipart/form-data'>
             @csrf

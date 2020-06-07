@@ -89,8 +89,9 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
     Route::get('/form-article', 'ArticleController@create');
-    Route::post('/article','ArticleController@store');
-    Route::get('/article/{id}/edit','ArtikelController@edit');
+    Route::post('/article','ArticleController@store')->middleware('auth:web');
+    Route::get('/article/{id}/edit','ArticleController@edit');
+    Route::get('/article/{id}','ArticleController@show');
     Route::patch('/article/{id}','ArticleController@update');
     Route::delete('/article/{id}','ArticleController@destroy');
     Route::get('/article/browse_ckeditor','ArticleController@fileBrowser');

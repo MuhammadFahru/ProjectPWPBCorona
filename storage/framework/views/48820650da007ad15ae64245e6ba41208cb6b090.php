@@ -390,7 +390,7 @@
             </div>
             <div class="portfolio-links">
               <a href="assets/img/logoRumahSakit/<?php echo e($rs['province']); ?>/<?php echo e($rs['logo']); ?>" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="/detail-rs/<?php echo e($rs['id']); ?>" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
