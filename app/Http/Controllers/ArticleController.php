@@ -75,6 +75,9 @@ class ArticleController extends Controller
     public function show($id)
     {
         $data['article'] = Article::find($id);
+        $data['articles'] = Article::where('id', '!=' , $id)->paginate(6);
+        $data['prev'] = $data['articles'][0];
+        $data['next'] = $data['articles'][1];
         return view('article.detail-post',$data);
     }
 

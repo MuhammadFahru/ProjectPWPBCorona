@@ -117,16 +117,16 @@
             <div class="col-lg-6">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
-                        <h3 class="title-2 m-b-40">Line Chart</h3>
-                        <canvas id="lineChart"></canvas>
+                        <h3 class="title-2 m-b-40">Infected Per Day</h3>
+                        <canvas id="myChart"></canvas>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
-                        <h3 class="title-2 m-b-40">Single Bar Chart</h3>
-                        <canvas id="singelBarChart"></canvas>
+                        <h3 class="title-2 m-b-40">Infected By Province</h3>
+                        <canvas id="myChart2"></canvas>
                     </div>
                 </div>
             </div>
@@ -172,4 +172,84 @@
 
     </div>
 </div>
+
+<script>
+    var data = new Array();
+    
+    $.ajax({
+        url: "{{ url('get-data-indo') }}",
+        type: 'POST',
+        dataType: 'json',
+        success: function(result) {
+            data = result;
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data['dateConfirmed'],
+                    datasets: [{
+                        label: 'Kenaikan',
+                        data: data['newConfirmed'],
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0.1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+        },
+    });
+
+    $.ajax({
+        url: "{{ url('get-data-provinsi') }}",
+        type: 'POST',
+        dataType: 'json',
+        success: function(result) {
+            data = result;
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data['provinceName'],
+                    datasets: [{
+                        label: 'Terinfeksi',
+                        data:  data['totalInfected'],
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0.1)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 5
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+        },
+    });
+
+</script>
 @endsection
+

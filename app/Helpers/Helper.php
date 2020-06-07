@@ -231,4 +231,81 @@ if (! function_exists('storeImage')) {
 	}
 }
 
+// Total Infected by province
+if (! function_exists('infectedByProvince')){
+	#code...
+	function infectedByProvince(){
+		$infected = array();
+		$iter = 0;
+		#code...
+		$data = Http::get('https://api.kawalcorona.com/indonesia/provinsi')->json('');
+
+		foreach ($data as $key => $value) {
+			
+			$infected['provinceName'][$iter] = $value['attributes']['Provinsi'];
+			$infected['totalInfected'][$iter] = $value['attributes']['Kasus_Posi'];
+			$iter++;
+		}
+
+		return $infected;
+	}
+}
+
+// Total Infected global
+if (! function_exists('infectedGlobalPerCountry')){
+	#code...
+	function infectedGlobalPerCountry(){
+		$infected = array();
+		$iter = 0;
+		#code...
+		$data = Http::get('https://api.covid19api.com/summary')->json()['Countries'];
+		foreach ($data as $key => $value) {
+			
+			$infected[$iter]['Country'] = $value['Country'];
+			$infected[$iter]['TotalConfirmed'] = $value['TotalConfirmed'];
+			$iter++;
+		}
+		$infected = multiArraySort($infected,"TotalConfirmed");
+		$infected = swap($infected,"Country","TotalConfirmed");
+		
+		return $infected;
+	}
+}
+
+// Recovered Global
+if(! function_exists('recoveredGlobalPerDay')){
+	#code...
+	function recoveredGlobalPerDay($country){
+		$result = array();
+		$iter = 0;
+		$url = 'https://api.covid19api.com/country/'.$country;
+		$data = Http::get($url)->json();
+		for ($i = 0; $i < sizeof($data) ; $i++) { 
+			# code...
+			if ($i != sizeof($data)-1) {
+				# code...
+				if ($i!=0) {
+					# code...
+					$result['recovered'][$i] = $data[$i]['Recovered'] - $data[$i-1]['Recovered'];
+				}else{
+					$result['recovered'][$i] = $data[$i]['Recovered'];
+				}
+				$result['day'][$i] = getRefinedDate($data[$i]['Date'],"T");
+			}
+		}
+		
+		return $result;
+	}
+}
+
+function swap($array,$key,$key2){ //parameter $key teh jeung ngaswap key nu eta 
+	$result = array();
+	for ($i=0; $i <sizeof($array) ; $i++) { 
+		# code...
+		$result[$key][$i] = $array[$i][$key]; 
+		$result[$key2][$i] = $array[$i][$key2];
+	}
+	return $result;
+}
+
 ?>

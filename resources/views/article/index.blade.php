@@ -1,3 +1,4 @@
+  
 @extends('components.master')
 @section('title', 'Article Page')
 @section('assets')
@@ -25,14 +26,14 @@
 					<?php if (isset($article[0])): ?>
 					<div class="col-md-8 hot-post-left">
 						<div class="post post-thumb">
-							<a class="post-img" href="/detail-article"><img width="100%" height="500" src="assets/article/img/{{ $article[0]['headline_picture'] }}" alt=""></a>
+							<a class="post-img" href="{{ url('/article',$article[0]['id']) }}"><img width="100%" height="500" src="assets/article/img/{{ $article[0]['headline_picture'] }}" alt=""></a>
 							<div class="post-body">
 								<div class="post-category">
-									<a href="/article/{{ $article[0]['id'] }}">Hot Article</a>
+									<a href="{{ url('/article',$article[0]['id']) }}">Hot Article</a>
 								</div>
-								<h3 class="post-title title-lg"><a href="/detail-article">{{ $article[0]['title'] }}</a></h3>
+								<h3 class="post-title title-lg"><a href="{{ url('/article',$article[0]['id']) }}">{{ $article[0]['title'] }}</a></h3>
 								<ul class="post-meta">
-									<li><a href="/article">{{ $article[0]['author'] }}</a></li>
+									<li><a href="{{ url('/article',$article[0]['id']) }}">{{ $article[0]['author'] }}</a></li>
 									<li>{{ $article[0]['created_at'] }}</li>
 								</ul>
 							</div>
@@ -46,14 +47,14 @@
 					<?php if (isset($article[1])): ?>
 					<!-- post -->
 					<div class="post post-thumb">
-						<a class="post-img" href="/detail-article"><img src="assets/article/img/{{ $article[1]['headline_picture'] }}" alt="" width="100%" height="247"></a>
+						<a class="post-img" href="{{ url('/article',$article[1]['id']) }}"><img src="assets/article/img/{{ $article[1]['headline_picture'] }}" alt="" width="100%" height="247"></a>
 						<div class="post-body">
 							<div class="post-category">
-								<a href="/article">Hot Article</a>
+								<a href="{{ url('/article',$article[1]['id']) }}">Hot Article</a>
 							</div>
 							<h3 class="post-title"><a href="/detail-article">{{ $article[1]['title'] }}</a></h3>
 							<ul class="post-meta">
-								<li><a href="author.html">{{ $article[1]['author'] }}</a></li>
+								<li><a href="{{ url('/article',$article[1]['id']) }}">{{ $article[1]['author'] }}</a></li>
 								<li>{{ $article[1]['created_at'] }}</li>
 							</ul>
 						</div>
@@ -65,13 +66,13 @@
 					
 					<!-- post -->
 					<div class="post post-thumb">
-						<a class="post-img" href="/detail-article"><img src="assets/article/img/{{ $article[2]['headline_picture'] }}" alt="" width="100%" height="247"></a>
+						<a class="post-img" href="{{ url('/article',$article[2]['id']) }}"><img src="assets/article/img/{{ $article[2]['headline_picture'] }}" alt="" width="100%" height="247"></a>
 						<div class="post-body">
 							<div class="post-category">
-								<a href="category.html">Fashion</a>
-								<a href="category.html">Lifestyle</a>
+								<a href="{{ url('/article',$article[2]['id']) }}">Fashion</a>
+								<a href="{{ url('/article',$article[2]['id']) }}">Lifestyle</a>
 							</div>
-							<h3 class="post-title"><a href="/detail-article">{{ $article[2]['title'] }}</a></h3>
+							<h3 class="post-title"><a href="{{ url('/article',$article[2]['id']) }}">{{ $article[2]['title'] }}</a></h3>
 							<ul class="post-meta">
 								<li><a href="author.html">{{ $article[2]['author'] }}</a></li>
 								<li>{{ $article[2]['created_at'] }}</li>
@@ -112,115 +113,25 @@
 
 						
 						{{-- FOREACH DISINI UNTUK MEMUNCULKAN SELURUH ARTICLE --}}
-
+						@foreach($article as $art)
 						<!-- post -->
 						<div class="col-md-4">
 							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-9.jpg" alt=""></a>
+								<a class="post-img" href="{{ url('/article',$art['id']) }}"><img src="{{ url('assets/article/img/',$art['headline_picture']) }}" alt=""></a>
 								<div class="post-body">
 									<div class="post-category">
-										<a href="category.html">Lifestyle</a>
+										<a href="{{ url('/article',$art['id']) }}">Lifestyle</a>
 									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+									<h3 class="post-title title-sm"><a href="{{ url('/article',$art['id']) }}">{{ $art['title'] }}</a></h3>
 									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
+										<li><a href="{{ url('/article',$art['id']) }}">{{ $art['author'] }}</a></li>
+										<li>{{ $art['created_at'] }}</li>
 									</ul>
 								</div>
 							</div>
 						</div>
 						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-8.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Fashion</a>
-										<a href="category.html">Lifestyle</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Postea senserit id eos, vivendo periculis ei qui</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
-
-						<!-- post -->
-						<div class="col-md-4">
-							<div class="post post-sm">
-								<a class="post-img" href="/detail-article"><img src="assets/article/img/post-11.jpg" alt=""></a>
-								<div class="post-body">
-									<div class="post-category">
-										<a href="category.html">Technology</a>
-									</div>
-									<h3 class="post-title title-sm"><a href="/detail-article">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-									<ul class="post-meta">
-										<li><a href="author.html">John Doe</a></li>
-										<li>20 April 2018</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- /post -->
+						@endforeach`
 
 					</div>
 					<!-- /row -->	

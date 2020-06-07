@@ -91,12 +91,15 @@ class InfoCoronaController extends Controller
         $data2 = Http::get('https://api.kawalcorona.com/positif');
         $data3 = Http::get('https://api.kawalcorona.com/sembuh');
         $data4 = Http::get('https://api.kawalcorona.com/meninggal');
+        $data5 = Http::get('https://api.covid19api.com/countries'); 
 
         // Convert Data to JSON
         $data['global'] = $data1->json();
         $data['positif'] = $data2->json();
         $data['sembuh'] = $data3->json();
-        $data['meninggal'] = $data4->json();        
+        $data['meninggal'] = $data4->json();
+        $data['negara'] = $data5->json();
+        sort($data['negara']);       
         
         return view('dashboard.data-global', $data);
 

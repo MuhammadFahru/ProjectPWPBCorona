@@ -6,7 +6,7 @@
         <div class="row">
   
           <div class="col-lg-12 col-md-6 footer-contact text-center">
-            <a href="/" class="logo mr-auto"><img src="assets/img/logo-web2.png" alt="" width="20%"></a>
+            <a href="/" class="logo mr-auto"><img src="{{ url('assets/img/logo-web2.png') }}" alt="" width="20%"></a>
             <br><br>
             <p>
               Jl. Kliningan No.6, Turangga, Kota Bandung, Jawa Barat
@@ -32,11 +32,11 @@
           </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">          
-          <a href="#"><img src="/assets/img/icons/instagram.png" width="50%" alt=""></a>
-          <a href="#"><img src="/assets/img/icons/facebook.png" width="50%" alt=""></a>
-          <a href="#"><img src="/assets/img/icons/twitter.png" width="50%" alt=""></a>
-          <a href="#"><img src="/assets/img/icons/youtube.png" width="50%" alt=""></a>
-          <a href="#"><img src="/assets/img/icons/gmail.png" width="50%" alt=""></a>
+          <a href="#"><img src="{{ url('assets/img/icons/instagram.png') }}" width="50%" alt=""></a>
+          <a href="#"><img src="{{ url('assets/img/icons/facebook.png') }}" width="50%" alt=""></a>
+          <a href="#"><img src="{{ url('assets/img/icons/twitter.png') }}" width="50%" alt=""></a>
+          <a href="#"><img src="{{ url('assets/img/icons/youtube.png') }}" width="50%" alt=""></a>
+          <a href="#"><img src="{{ url('assets/img/icons/gmail.png') }}" width="50%" alt=""></a>
         </div>
       </div>
   

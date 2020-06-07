@@ -48,17 +48,33 @@ Auth::routes();
 | Routes Dashboard
 |--------------------------------------------------------------------------
 */
-    Route::get('/dashboard', 'InfoCoronaController@DataDashboard')->name('dashboard');
-    Route::get('/data-global', 'InfoCoronaController@DataGlobalDashboard');
-    Route::get('/data-indonesia', 'InfoCoronaController@DataIndonesiaDashboard');
-    Route::get('/rs-rujukan', 'HospitalController@index');
-    Route::get('/article', 'ArticleController@indexDashboard');
+    Route::get('/dashboard', 'InfoCoronaController@DataDashboard')->name('dashboard')->middleware('auth:web');
+    Route::get('/data-global', 'InfoCoronaController@DataGlobalDashboard')->middleware('auth:web');
+    Route::get('/data-indonesia', 'InfoCoronaController@DataIndonesiaDashboard')->middleware('auth:web');
+    Route::get('/rs-rujukan', 'HospitalController@index')->middleware('auth:web');
+    Route::get('/article', 'ArticleController@indexDashboard')->middleware('auth:web');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth:web');
     Route::post('/get-grafik-article',function(){
         echo json_encode(getGrafikArticle());
     });
     Route::post('/get-grafik-hospital',function(){
         echo json_encode(getGrafikHospital());
+    });
+    Route::post('/get-data-provinsi',function(){
+        echo json_encode(infectedByProvince());
+    });
+    Route::post('/get-data-global',function(){
+        echo json_encode(infectedGlobalPerCountry());
+    });
+    Route::post('/get-recov-global',function(){
+        $country = $_GET['country'];
+        echo json_encode(recoveredGlobalPerDay($country)); 
+    });
+    Route::post('/get-kasus-indo',function(){
+        echo json_encode(getIndonesiaCases());
+    });
+    Route::post('get-most-recovered',function(){
+        echo json_encode(getMostRecoveredCountry());
     });
 /*
 |--------------------------------------------------------------------------
@@ -71,12 +87,12 @@ Auth::routes();
 | Routes CRUD Data Rumah Sakit
 |--------------------------------------------------------------------------
 */
-    Route::get('/rs', 'HospitalController@create')->name('rs');
+    Route::get('/rs', 'HospitalController@create')->name('rs')->middleware('auth:web');
     Route::get('/rs/{id}','HospitalController@show');
-    Route::get('/rs/{id}/edit', 'HospitalController@edit');
-    Route::post('/rs','HospitalController@store');
-    Route::patch('/rs/{id}','HospitalController@update');
-    Route::delete('/rs/{id}','HospitalController@destroy');
+    Route::get('/rs/{id}/edit', 'HospitalController@edit')->middleware('auth:web');
+    Route::post('/rs','HospitalController@store')->middleware('auth:web');
+    Route::patch('/rs/{id}','HospitalController@update')->middleware('auth:web');
+    Route::delete('/rs/{id}','HospitalController@destroy')->middleware('auth:web');
 /*
 |--------------------------------------------------------------------------
 | End Routes Website
@@ -88,14 +104,12 @@ Auth::routes();
 | Routes CRUD Data Artikel
 |--------------------------------------------------------------------------
 */
-    Route::get('/form-article', 'ArticleController@create');
+    Route::get('/form-article', 'ArticleController@create')->middleware('auth:web');
     Route::post('/article','ArticleController@store')->middleware('auth:web');
-    Route::get('/article/{id}/edit','ArticleController@edit');
+    Route::get('/article/{id}/edit','ArticleController@edit')->middleware('auth:web');
     Route::get('/article/{id}','ArticleController@show');
-    Route::patch('/article/{id}','ArticleController@update');
-    Route::delete('/article/{id}','ArticleController@destroy');
-    Route::get('/article/browse_ckeditor','ArticleController@fileBrowser');
-    Route::post('/article/upload_ckeditor','ArticleController@uploadCkeditor');
+    Route::patch('/article/{id}','ArticleController@update')->middleware('auth:web');
+    Route::delete('/article/{id}','ArticleController@destroy')->middleware('auth:web');
 /*
 |--------------------------------------------------------------------------
 | End Routes Website

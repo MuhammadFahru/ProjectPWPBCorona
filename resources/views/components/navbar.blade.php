@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
     <div class="col-xl-9 d-flex align-items-center">
         {{-- <h1 class="logo mr-auto"><a href="index.html">#Terserah</a></h1>           --}}
-        <a href="{{ route('index') }}?#hero" class="logo mr-auto"><img src="assets/img/logo-web2.png" alt="" class="img-fluid"></a>
+        <a href="{{ route('index') }}?#hero" class="logo mr-auto"><img src="{{ url('assets/img/logo-web2.png') }}" alt="" class="img-fluid"></a>
 
         <nav class="nav-menu d-none d-lg-block">
         <ul>

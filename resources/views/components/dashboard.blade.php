@@ -41,7 +41,7 @@
     <link href="{{ URL::asset('assets/dashboard/css/style.css') }}" rel="stylesheet" media="all">
 
     <!-- Jquery JS-->
-    <script src="assets/dashboard/vendor/jquery-3.2.1.min.js"></script>
+    <script src="{{ URL::asset('assets/dashboard/vendor/jquery-3.2.1.min.js') }}"></script>
 
     <!-- Chart JS CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -112,6 +112,10 @@
         };
     </script> 
     
+
+     <!-- Jquery JS-->
+    <script src="{{ URL::asset('assets/dashboard/vendor/jquery-3.2.1.min.js') }}"></script>
+
     <!-- Bootstrap JS-->
     <script src=" {{ URL::asset('assets/dashboard/vendor/bootstrap-4.1/popper.min.js') }}"></script>
     <script src=" {{ URL::asset('assets/dashboard/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>

@@ -1,4 +1,9 @@
 <!-- HEADER DESKTOP-->
+<?php
+
+use Illuminate\Support\Facades\Auth;
+
+?>
 <header class="header-desktop">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -20,7 +25,7 @@
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="assets/dashboard/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                        <img src="{{ url('assets/dashboard/images/icon/avatar-06.jpg') }}" alt="Michelle Moreno" />
                                     </div>
                                     <div class="content">
                                         <h6>Michelle Moreno</h6>
@@ -30,7 +35,7 @@
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="assets/dashboard/images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                        <img src="{{ url('assets/dashboard/images/icon/avatar-04.jpg') }}" alt="Diane Myers" />
                                     </div>
                                     <div class="content">
                                         <h6>Diane Myers</h6>
@@ -52,7 +57,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="assets/dashboard/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                        <img src="{{ url('assets/dashboard/images/icon/avatar-06.jpg') }}" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -61,7 +66,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="assets/dashboard/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                        <img src="{{ url('assets/dashboard/images/icon/avatar-05.jpg') }}" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -69,8 +74,8 @@
                                     </div>
                                 </div>
                                 <div class="email__item">
-                                    <div class="image img-cir img-40">
-                                        <img src="assets/dashboard/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                    <div class="image img-cir img-40">')
+                                        <img src="{{ url('assets/dashboard/images/icon/avatar-04.jpg') }}" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -125,23 +130,23 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="assets/dashboard/images/icon/avatar-01.jpg" alt="John Doe" />
+                                <img src="{{ url('assets/dashboard/images/icon/masdep.jpeg') }}" alt="Pacarku" />
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">Admin</a>
+                                <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="assets/dashboard/images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="{{ url('assets/dashboard/images/icon/masdep.jpeg') }}" alt="Pacarku" />
                                         </a>
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#">Admin</a>
+                                            <a href="#">{{ Auth::user()->name }}</a>
                                         </h5>
-                                        <span class="email">admin@gmail.com</span>
+                                        <span class="email">{{ Auth::user()->email }}</span>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__body">
