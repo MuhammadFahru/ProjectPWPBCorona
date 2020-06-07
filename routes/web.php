@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
-
 /*
 |--------------------------------------------------------------------------
 | Routes Website
 |--------------------------------------------------------------------------
 */
     Route::get('/', 'InfoCoronaController@index')->name('index');
+    Route::get('/login', 'Auth\LoginController@index')->name('login');
+    Route::post('/login', 'Auth\LoginController@login')->name('login.post');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
     Route::get('/global', 'InfoCoronaController@DataGlobal')->name('global');
     Route::get('/indonesia', 'InfoCoronaController@DataIndonesia')->name('indonesia');
     Route::get('/article-page', 'ArticleController@show');

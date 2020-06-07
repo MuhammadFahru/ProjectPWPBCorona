@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show', 'detail');
+    }
+
     public function show() {
         return view('article.index');
     }
@@ -21,4 +32,5 @@ class ArticleController extends Controller
     public function form() {
         return view('dashboard.form.form-artikel');
     }
+
 }

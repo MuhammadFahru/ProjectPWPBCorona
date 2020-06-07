@@ -7,6 +7,17 @@ use Illuminate\Support\Facades\Http;
 
 class InfoCoronaController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'DataGlobal'. 'DataIndonesia');
+    }
+
     public function index() {
 
         // GET Data API Corona Virus
