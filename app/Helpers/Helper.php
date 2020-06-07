@@ -1,5 +1,9 @@
 <?php 
 
+use App\Hospital;
+use App\Article;
+
+
 //Get Graphic of Indonesia Country
 if (! function_exists('getGrafikIndo')) {
     function getGrafikIndo()
@@ -28,19 +32,26 @@ if (! function_exists('getGrafikIndo')) {
 
 //Get Refined Date
 if (! function_exists('getRefinedDate')) {
-	function getRefinedDate($date,$stringRegex){
+	function getRefinedDate($date,$stringRegex,$monthOnly = false){
 		$result = explode($stringRegex, $date);
-    	return getMonthName($result[0]);
+    	return getMonthName($result[0],$monthOnly);
 	}
 }
 
 //Get Month Name
 if (! function_exists('getMonthName')) {
-	function getMonthName($date){
+	function getMonthName($date,$mpnthOnly = false){
 		$explodedDate = explode("-", $date);
-		$years = $explodedDate[0];
-		$days = $explodedDate[2];
+		if (!$mpnthOnly) {
+			# code...
+			$years = $explodedDate[0];
+			$days = $explodedDate[2];
+		}else{
+			$days = "";
+			$years = "";
+		}
 		$numericMonth = $explodedDate[1];
+		
 		switch ($numericMonth) {
 			case '01':
 				return $days." Jan ".$years;
@@ -164,5 +175,61 @@ if (! function_exists('multiArraySort')) {
 	}
 }
 
+//Get Total Hospital Group By Province
+if (! function_exists('getGrafikHospital')) {
+	# code...
+	function getGrafikHospital(){
+		$result = array();
+		$data = Hospital::select('province', \DB::raw('count(*) as total'))
+                 ->groupBy('province')
+                 ->get();
+        for ($i=0; $i < sizeof($data); $i++) { 
+        	# code...
+        	
+        	$result['province'][$i] = $data[$i]['province'];
+        	$result['total'][$i] = $data[$i]['total'];
+        }
+        return $result;
+	}
+}
+
+//Get Total Article Created Per Month
+if (! function_exists('getGrafikArticle')) {
+	# code...
+	function getGrafikArticle(){
+		$result = array();
+		$data = Article::select(\DB::raw('created_at, count(id) as `data`'),
+			\DB::raw('YEAR(created_at) year, MONTH(created_at) month'))->groupby('year','month')
+			->get();
+		for ($i=0; $i < sizeof($data); $i++) { 
+			# code...
+			$result['new_date'][$i] = getRefinedDate($data[$i]['created_at']," ",true);
+			$result['data'][$i] = $data[$i]['data'];
+		}
+		return $result;
+	}
+}
+
+if (! function_exists('storeImage')) {
+	# code...
+	function storeImage($image,$path){
+		$imageName =  $image['name'];
+		$imageTmp =  $image['tmp_name'];
+		$exploded = explode(".", $imageName);
+		$eks = end($exploded);
+		$validate = ['png','jpg','jpeg'];
+		if (!in_array($eks, $validate)) {
+			# code...
+			return redirect($_SERVER['PHP_SELF'])->with('error','Yang Anda Input Bukan Foto!');
+		}
+		$newName = sha1(time()).".".$eks;
+		$path = public_path($path);
+		if (!file_exists($path)) {
+		    mkdir($path, 0777, true);
+		}
+		move_uploaded_file($imageTmp, $path."/".$newName);
+		return $newName;
+	}
+}
 
 ?>

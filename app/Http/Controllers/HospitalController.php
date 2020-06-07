@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Hospital;
 use Illuminate\Http\Request;
+use App\Province;
 
 class HospitalController extends Controller
 {
@@ -13,8 +14,13 @@ class HospitalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        
         $data['hospitals'] = Hospital::get();
+        for ($i=0; $i < sizeof($data['hospitals']); $i++) { 
+            # code...
+            $data['hospitals'][$i]['province'] = Province::find($data['hospitals'][$i]['province'],['province_name'])['province_name'];
+        }
         return view('dashboard.rumah-sakit',$data);
     }
 
@@ -25,7 +31,8 @@ class HospitalController extends Controller
      */
     public function create()
     {
-        return view('dashboard.form.form-rs');
+        $data['province'] = Province::get();
+        return view('dashboard.form.form-rs',$data);
     }
 
     /**
@@ -35,9 +42,32 @@ class HospitalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {                     
+        // Validate the request...
+
+        $request->validate([
+            'hospital_name'=>'required',
+            'province'=>'required',
+            'address'=>'required',
+            'phone_number'=>'required',
+            'logo'=>'required'
+        ]);
+
+        $logo = storeImage($_FILES['logo'],'assets/img/logoRumahSakit/'.Province::find($request->get('province'),['province_name'])['province_name']);
+
+        $hospital = new Hospital([
+            'hospital_name'   => $request->get('hospital_name'),
+            'province'        => $request->get('province'),
+            'address'         => $request->get('address'),
+            'phone_number'    => $request->get('phone_number'),
+            'logo'            => $logo
+        ]);
+
+        $hospital->save();
+        return redirect('/rs-rujukan')->with('success', 'Hospital added!');
+
     }
+
 
     /**
      * Display the specified resource.
@@ -47,7 +77,7 @@ class HospitalController extends Controller
      */
     public function show(Hospital $hospital)
     {
-        //
+        
     }
 
     /**
@@ -56,9 +86,11 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hospital $hospital)
+    public function edit($id)
     {
-        //
+        $hospital = Hospital::find($id);
+        $hospital['province'] = Province::get();
+        return view('dashboard.form.form-rs',$hospital);
     }
 
     /**
@@ -68,9 +100,27 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hospital $hospital)
+    public function update(Request $request,$id)
     {
-        //
+        // Validate the request...
+
+        $request->validate([
+            'hospital_name'=>'required',
+            'province'=>'required',
+            'address'=>'required',
+            'phone_number'=>'required',
+            'logo'=>'required'
+        ]);
+
+        $hospital = Hospital::find($id);
+        $hospital->hospital_name   = $request->get('hospital_name');
+        $hospital->province        = $request->get('province');
+        $hospital->address         = $request->get('address');
+        $hospital->phone_number    = $request->get('phone_number');
+        $hospital->logo            = $request->get('logo');
+        $hospital->save();
+        
+        return redirect('/rs-rujukan')->with('success', 'Rs updated!');    
     }
 
     /**
@@ -79,8 +129,11 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hospital $hospital)
+    public function destroy($id)
     {
-        //
+        $hospital = Hospital::find($id);
+        $hospital->delete();
+
+        return redirect('/rs-rujukan')->with('success', 'Rs deleted!');
     }
 }

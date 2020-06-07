@@ -91,7 +91,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-footer"><a href="">Detail <i class="icofont-long-arrow-right"></i></a></div>
+            <div class="card-footer"><a href="<?php echo e(url('/data-global')); ?>">Detail <i class="icofont-long-arrow-right"></i></a></div>
           </div>
         </div>
                   
@@ -125,7 +125,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-footer"><a href="">Detail <i class="icofont-long-arrow-right"></i></a></div>
+            <div class="card-footer"><a href="<?php echo e(url('/data-indonesia')); ?>">Detail <i class="icofont-long-arrow-right"></i></a></div>
           </div>
         </div>
 
@@ -372,256 +372,29 @@
         <div class="col-lg-12 d-flex justify-content-center">
           <ul id="portfolio-flters">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-aceh">Aceh</li>
-            <li data-filter=".filter-bengkulu">Bengkulu</li>
-            <li data-filter=".filter-jakarta">Jakarta</li>
-            <li data-filter=".filter-jabar">Jabar</li>
-            <li data-filter=".filter-jateng">Jateng</li>
-            <li data-filter=".filter-jatim">Jatim</li>
-            <li data-filter=".filter-kriau">Kep Riau</li>
-            <li data-filter=".filter-lampung">Lampung</li>
-            <li data-filter=".filter-riau">Riau</li>
-            <li data-filter=".filter-sumatera">Sumatera</li>
-            <li data-filter=".filter-yogyakarta">Yogyakarta</li>
+            <?php $__currentLoopData = $provinsi_rumah_sakit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <li data-filter=".filter-<?php echo e($rs['province_name']); ?>"><?php echo e($rs['province_name']); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </ul>
         </div>
       </div>
 
       <div class="row portfolio-container">
 
-        <div class="col-lg-2 col-md-6 portfolio-item filter-aceh">
+        <?php $__currentLoopData = $rumah_sakit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rs): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="col-lg-2 col-md-6 portfolio-item filter-<?php echo e($rs['province']); ?>">
           <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Aceh/zainalAbidin.png" class="img-fluid" alt="">
+            <img src="assets/img/logoRumahSakit/<?php echo e($rs['province']); ?>/<?php echo e($rs['logo']); ?>" class="img-fluid" alt="">
             <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
+              <p class="mt-3"><?php echo e($rs['hospital_name']); ?></p>
             </div>
             <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Aceh/zainalAbidin.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="assets/img/logoRumahSakit/<?php echo e($rs['province']); ?>/<?php echo e($rs['logo']); ?>" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
               <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-bengkulu">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Bengkulu/damrahManna.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Bengkulu/damrahManna.png" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jakarta">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Jakarta/gatotSubroto.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Jakarta/gatotSubroto.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jakarta">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Jakarta/durenSawit.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Jakarta/durenSawit.png" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>          
-        
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jabar">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/JawaBarat/hasanSadikin.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/JawaBarat/hasanSadikin.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jabar">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/JawaBarat/bekasi.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/JawaBarat/bekasi.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jateng">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/JawaTengah/banyumas.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/JawaTengah/banyumas.png" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jatim">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/JawaTimur/soedonoMadiun.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/JawaTimur/soedonoMadiun.png" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-kriau">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/KepulauanRiau/muhammadSani.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/KepulauanRiau/muhammadSani.png" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-lampung">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Lampung/ahmadYaniMetro.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Lampung/ahmadYaniMetro.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-riau">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Riau/arifinAchmad.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Riau/arifinAchmad.png" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-sumatera">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Sumatera/kabanjahe.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Sumatera/kabanjahe.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-sumatera">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Sumatera/padangSidempuan.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Sumatera/padangSidempuan.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-yogyakarta">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Yogyakarta/wates.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Yogyakarta/wates.png" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-aceh">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Aceh/cutMeutia.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Aceh/cutMeutia.png" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-bengkulu">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Bengkulu/argaMakmur.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Bengkulu/argaMakmur.png" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jakarta">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/Jakarta/mintoharjo.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/Jakarta/mintoharjo.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 portfolio-item filter-jabar">
-          <div class="portfolio-wrap">
-            <img src="assets/img/logoRumahSakit/JawaBarat/slametGarut.png" class="img-fluid" alt="">
-            <div class="portfolio-info">                
-              <p class="mt-3">Nama RS</p>
-            </div>
-            <div class="portfolio-links">
-              <a href="assets/img/logoRumahSakit/JawaBarat/slametGarut.png" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-              <a href="/detail-rs" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
       </div>
 

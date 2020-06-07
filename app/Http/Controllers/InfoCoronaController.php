@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Article;
+use App\Province;
 use App\Hospital;
 
 class InfoCoronaController extends Controller
@@ -22,7 +23,12 @@ class InfoCoronaController extends Controller
         $data['sembuh'] = $data2->json();
         $data['meninggal'] = $data3->json();
         $data['indonesia'] = $data4->json();
-
+        $data['rumah_sakit'] = Hospital::get();
+        for ($i=0; $i < sizeof($data['rumah_sakit']); $i++) { 
+            # code...
+            $data['rumah_sakit'][$i]['province'] = Province::find($data['rumah_sakit'][$i]['province'],['province_name'])['province_name'];
+        }
+        $data['provinsi_rumah_sakit'] = Province::get();
         return view('welcome', $data);
 
     }
@@ -69,7 +75,10 @@ class InfoCoronaController extends Controller
         $data['positif'] = $data1->json();
         $data['indonesia'] = $data2->json();
         $data['jumlah_rumah_sakit'] = Hospital::count();
-        $data['jumlah_artikel'] = Article::count(); 
+        $data['jumlah_artikel'] = Article::count();
+        $data['statistik_rumah_sakit'] = Hospital::select('province', \DB::raw('count(*) as total'))
+                 ->groupBy('province')
+                 ->get();
 
         return view('dashboard.index', $data);
 

@@ -122,16 +122,16 @@
             <div class="col-lg-6">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
-                        <h3 class="title-2 m-b-40">Line Chart</h3>
-                        <canvas id="lineChart"></canvas>
+                        <h3 class="title-2 m-b-40">Jumlah Rumah Sakit Per Provinsi</h3>
+                        <canvas id="hospitalChart"></canvas>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner">
-                        <h3 class="title-2 m-b-40">Single Bar Chart</h3>
-                        <canvas id="singelBarChart"></canvas>
+                        <h3 class="title-2 m-b-40">Jumlah Artikel Dibuat Perbulan</h3>
+                        <canvas id="articleChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -139,4 +139,84 @@
 
     </div>
 </div>
+
+<script type="text/javascript">
+    var data = new Array();
+
+    $.ajax({
+        url: "/get-grafik-article",
+        type: 'POST',
+        dataType: 'json',
+        success: function(result) {
+            data = result;
+            var ctx = document.getElementById('articleChart').getContext('2d');
+            var myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data['new_date'],
+                    datasets: [{
+                            label : 'Jumlah Artikel Dibuat',
+                            barPercentage: 1,
+                            barThickness: 6,
+                            maxBarThickness: 8,
+                            minBarLength: 2,
+                            data: data['data'],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                    }]
+                },
+                options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+            });
+        }
+
+    });
+ 
+     $.ajax({
+        url: "/get-grafik-hospital",
+        type: 'POST',
+        dataType: 'json',
+        success: function(result) {
+            data = result;
+            var ctx = document.getElementById('hospitalChart').getContext('2d');
+            var myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data['province'],
+                    datasets: [{
+                            label : 'Jumlah Rumah Sakit',
+                            barPercentage: 1,
+                            barThickness: 6,
+                            maxBarThickness: 8,
+                            minBarLength: 2,
+                            data: data['total'],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                    }]
+                },
+                options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+            });
+        }
+
+    });
+ 
+</script>
 @endsection
+

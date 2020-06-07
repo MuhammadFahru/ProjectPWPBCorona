@@ -8,6 +8,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Title Page-->
     <title>Dashboard Shutdown Corona</title>
@@ -38,10 +39,26 @@
     <!-- Main CSS-->
     <link href="assets/dashboard/css/theme.css" rel="stylesheet" media="all">
     <link href="assets/dashboard/css/style.css" rel="stylesheet" media="all">
+    
+    <!-- Jquery JS-->
+    <script src="assets/dashboard/vendor/jquery-3.2.1.min.js"></script>
+
+    <!-- Chart JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+    <script>
+         $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+    </script>
 
 </head>
 
-<body class="animsition">
+<body class="animation">
     <div class="page-wrapper">        
 
         @include('components.sidebar')
@@ -96,8 +113,6 @@
         };
     </script> 
     
-    <!-- Jquery JS-->
-    <script src="assets/dashboard/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="assets/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="assets/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -121,11 +136,6 @@
     <!-- Main JS-->
     <script src="assets/dashboard/js/main.js"></script>
     <script src="assets/js/datatables.js"></script>
-
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script>
-        CKEDITOR.replace( 'summary-ckeditor' );
-    </script>
 
 </body>
 

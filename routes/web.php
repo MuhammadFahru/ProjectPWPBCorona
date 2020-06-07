@@ -54,6 +54,12 @@ Auth::routes();
     Route::get('/rs-rujukan', 'HospitalController@index');
     Route::get('/article', 'ArticleController@indexDashboard');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth:web');
+    Route::post('/get-grafik-article',function(){
+        echo json_encode(getGrafikArticle());
+    });
+    Route::post('/get-grafik-hospital',function(){
+        echo json_encode(getGrafikHospital());
+    });
 /*
 |--------------------------------------------------------------------------
 | End Routes Website
@@ -65,7 +71,12 @@ Auth::routes();
 | Routes CRUD Data Rumah Sakit
 |--------------------------------------------------------------------------
 */
-    Route::get('/form-rs', 'HospitalController@create');
+    Route::get('/rs', 'HospitalController@create')->name('rs');
+    Route::get('/rs/{id}','HospitalController@show');
+    Route::get('/rs/{id}/edit', 'HospitalController@edit');
+    Route::post('/rs','HospitalController@store');
+    Route::patch('/rs/{id}','HospitalController@update');
+    Route::delete('/rs/{id}','HospitalController@destroy');
 /*
 |--------------------------------------------------------------------------
 | End Routes Website
@@ -78,6 +89,12 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
     Route::get('/form-article', 'ArticleController@create');
+    Route::post('/article','ArticleController@store');
+    Route::get('/article/{id}/edit','ArtikelController@edit');
+    Route::patch('/article/{id}','ArticleController@update');
+    Route::delete('/article/{id}','ArticleController@destroy');
+    Route::get('/article/browse_ckeditor','ArticleController@fileBrowser');
+    Route::post('/article/upload_ckeditor','ArticleController@uploadCkeditor');
 /*
 |--------------------------------------------------------------------------
 | End Routes Website
