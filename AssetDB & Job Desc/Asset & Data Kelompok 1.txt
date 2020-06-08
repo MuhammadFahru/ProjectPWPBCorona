@@ -1,0 +1,12 @@
+Link Asset ( Database, .env, vendor ) :
+https://drive.google.com/drive/folders/1jY9ZB1fzbN3mOZ8IsHhkQCvek_TJeqnn?usp=sharing
+
+Akun admin ( untuk masuk ke dashboard) :
+username : admin
+password : admin123
+
+Pembagian Job Desc Kelompok 1 :
+
+- Diazs Martiansyah ( Back-End & Data Collecter )
+- Dean Beniqno      ( Back-End & Tester )
+- Muhammad Fahru    ( Front-End & Designer )
