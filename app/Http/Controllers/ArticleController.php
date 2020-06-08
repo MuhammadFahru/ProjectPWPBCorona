@@ -16,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $data['article'] = Article::get();
+        $data['article'] = Article::latest()->get();
         for ($i=0; $i < sizeof($data['article']); $i++) { 
             $data['article'][$i]['author'] = User::find($data['article'][$i]['author'], ['name'])['name'];
         } 
@@ -104,17 +104,20 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'content' => 'required'
+            'content' => 'required',
         ]);
 
         $article = Article::find($id);
         $article->title  = $request->get('title');
+
         if ($_FILES['headline_picture']['error'] == 4 && empty($article->headline_picture)) {
             return redirect(url()->current())->with('error','Insert Picture!');
         }else if($_FILES['headline_picture']['error'] == 0){
-            $picture = storeImage($_FILES['headline_picture'],'assets/article/img');
+            $article->headline_picture = storeImage($_FILES['headline_picture'],'assets/article/img');
         }
+
         $article->content = $request->get('content');
+
         $article->save();
         
         return redirect('/article')->with('success', 'Article Updated!');    

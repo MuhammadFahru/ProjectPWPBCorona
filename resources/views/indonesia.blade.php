@@ -126,9 +126,9 @@ $persentaseSembuh = $persentaseData['recov'];
           <div class="row">
             <div class="col-lg-6">
                 <!-- Project Card Example -->
-                <div class="card shadow mb-4">
+                <div class="card shadow mb-4" style="height: 340px;">
                     <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Progress Bar</h6>
                     </div>
                     <div class="card-body">                    
                         <h4 class="small font-weight-bold">Sembuh<span class="float-right"><?= round($persentaseSembuh) ?>%</span></h4>
@@ -146,7 +146,7 @@ $persentaseSembuh = $persentaseData['recov'];
             <div class="col-lg-6">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Diagram</h6>
                     </div>
                     <div class="card-body">          
                         <canvas id="myChart2"></canvas>                        

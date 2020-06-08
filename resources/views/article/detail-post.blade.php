@@ -11,7 +11,7 @@
 
     <!-- PAGE HEADER -->
 		<div id="post-header" class="page-header">
-			<div class="page-header-bg" style="background-image: url('{{ URL::asset('assets/article/img/'.$article['headline_picture']) }}')" data-stellar-background-ratio="0.5"></div>
+			<div class="page-header-bg" style="background-image: url('{{ URL::asset('assets/article/img/'.$article['headline_picture']) }}'); background-size: cover;" data-stellar-background-ratio="0.5"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10">
@@ -41,7 +41,7 @@
 					<!-- post content -->
 					<div class="section-row">
 						<h3>{{ $article['title'] }}</h3>
-						<p class="left-align">{{ $article['content'] }}</p>
+						<p class="left-align">{!! nl2br($article['content']) !!}</p>
 					</div>
 					<!-- /post content -->
 

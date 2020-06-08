@@ -16,8 +16,6 @@
             <li><a href="{{ route('index') }}?#contact">Contact</a></li>
         </ul>
         </nav><!-- .nav-menu -->
-
-        <a href="/dashboard" class="get-started-btn scrollto">Login</a>
     </div>
     </div>
 

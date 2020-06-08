@@ -1,7 +1,7 @@
 @extends('components.dashboard')
 @section('rs','active')
 @section('content')
-<div class="section__content section__content--p30">
+<div class="section_content section_content--p30">
     <div class="container-fluid">          
 
         <div class="card shadow" style="padding:40px;">      
@@ -35,7 +35,7 @@
                     <div class="col-lg-9">
                        <select name="province" class="form-control" id="exampleFormControlSelect1">
                             @foreach($province as $prov)
-                                <option value="{{ $prov['id'] }}">{{ $prov['province_name'] }}</option>
+                                <option value="{{ $prov['id'] }}" {{ old('province',@$rumah_sakit->province)==$prov['id']?"selected":"" }}>{{ $prov['province_name'] }}</option>
                             @endforeach
                         </select>
                     </div>

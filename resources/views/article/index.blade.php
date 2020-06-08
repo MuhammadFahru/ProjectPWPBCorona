@@ -117,7 +117,7 @@
 						<!-- post -->
 						<div class="col-md-4">
 							<div class="post post-sm">
-								<a class="post-img" href="{{ url('/article',$art['id']) }}"><img src="{{ url('assets/article/img/',$art['headline_picture']) }}" alt=""></a>
+								<a class="post-img" href="{{ url('/article',$art['id']) }}"><img src="{{ url('assets/article/img/',$art['headline_picture']) }}" height="250" alt=""></a>
 								<div class="post-body">
 									<div class="post-category">
 										<a href="{{ url('/article',$art['id']) }}">Lifestyle</a>

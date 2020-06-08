@@ -115,11 +115,16 @@ class HospitalController extends Controller
             'phone_number'=>'required'
         ]);
 
+        $hospital = Hospital::find($id);
+
         if ($_FILES['logo']['error'] == 0) {//Jika foto baru di upload maka simpan perubahan ke database
             $logo = storeImage($_FILES['logo'],'assets/img/logoRumahSakit/'.Province::find($request->get('province'),['province_name'])['province_name']);
+            $hospital->logo = $logo;
+        }else{
+
+            $hospital->logo = $hospital->logo;
         }
 
-        $hospital = Hospital::find($id);
         $hospital->hospital_name   = $request->get('hospital_name');
         $hospital->province        = $request->get('province');
         $hospital->address         = $request->get('address');

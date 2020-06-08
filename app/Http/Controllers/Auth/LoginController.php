@@ -63,6 +63,6 @@ class LoginController extends Controller
 
     public function logout(){
 
-       return redirect('login')->with(auth()->logout());
+       return redirect('/')->with(auth()->logout());
     }
 }
